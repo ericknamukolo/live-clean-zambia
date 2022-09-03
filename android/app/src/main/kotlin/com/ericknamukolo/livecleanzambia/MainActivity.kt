@@ -1,4 +1,4 @@
-package com.example.live_clean_zambia
+package com.ericknamukolo.livecleanzambia
 
 import io.flutter.embedding.android.FlutterActivity
 
