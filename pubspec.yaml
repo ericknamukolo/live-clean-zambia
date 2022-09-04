@@ -36,6 +36,7 @@ dependencies:
   material_design_icons_flutter: ^5.0.6996
   flutter_svg: ^1.1.4
   url_launcher: ^6.1.5
+  web_smooth_scroll: ^1.0.0
 
 dev_dependencies:
   change_app_package_name: ^1.1.0

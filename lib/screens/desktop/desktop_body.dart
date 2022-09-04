@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_home.dart';
+import '../../widgets/desktop/desktop_services.dart';
 
-class DesktopBody extends StatelessWidget {
+class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
 
+  @override
+  State<DesktopBody> createState() => _DesktopBodyState();
+}
+
+class _DesktopBodyState extends State<DesktopBody> {
+  final _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,11 +22,17 @@ class DesktopBody extends StatelessWidget {
         children: [
           const DesktopAppBar(),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: const [
-                  DesktopHome(),
-                ],
+            child: WebSmoothScroll(
+              controller: _scrollController,
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: const [
+                    DesktopHome(),
+                    DesktopServices(),
+                  ],
+                ),
               ),
             ),
           ),
