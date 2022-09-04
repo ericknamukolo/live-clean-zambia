@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/desktop/desktop_appbar.dart';
+import '../../widgets/desktop/desktop_home.dart';
 
 class DesktopBody extends StatelessWidget {
   const DesktopBody({super.key});
@@ -15,7 +16,9 @@ class DesktopBody extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: const [],
+                children: const [
+                  DesktopHome(),
+                ],
               ),
             ),
           ),

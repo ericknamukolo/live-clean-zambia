@@ -14,7 +14,7 @@ const kBodyTitleTextStyleGrey = TextStyle(
 );
 
 const kBodyTextStyleWhite = TextStyle(
-  fontSize: 12,
+  fontSize: 14,
   color: Colors.white,
   fontWeight: FontWeight.w500,
 );
@@ -26,7 +26,7 @@ var kHintTextStyle = TextStyle(
 );
 
 const kTitleTextStyle = TextStyle(
-  fontSize: 20,
+  fontSize: 35,
   color: Colors.white,
   fontWeight: FontWeight.bold,
 );
