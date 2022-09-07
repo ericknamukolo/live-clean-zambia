@@ -31,17 +31,17 @@ class DesktopServices extends StatelessWidget {
                 children: SiteData.services
                     .getRange(0, 3)
                     .map(
-                      (service) => const ServiceCard(),
+                      (service) => ServiceCard(service: service),
                     )
                     .toList(),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: SiteData.services
                     .getRange(3, 6)
                     .map(
-                      (service) => const ServiceCard(),
+                      (service) => ServiceCard(service: service),
                     )
                     .toList(),
               ),
