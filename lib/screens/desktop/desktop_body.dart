@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../widgets/desktop/desktop_appbar.dart';
+import '../../widgets/desktop/desktop_gallery.dart';
 import '../../widgets/desktop/desktop_home.dart';
 import '../../widgets/desktop/desktop_services.dart';
 
@@ -31,6 +32,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                   children: const [
                     DesktopHome(),
                     DesktopServices(),
+                    DesktopGallery(),
                   ],
                 ),
               ),
