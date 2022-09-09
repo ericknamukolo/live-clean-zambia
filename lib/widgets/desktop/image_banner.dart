@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:live_clean_zambia/constants/text.dart';
 
-import '../custom_button.dart';
+import '../../constants/colors.dart';
+import '../../constants/text.dart';
 
-class DesktopHome extends StatelessWidget {
-  const DesktopHome({
+class ImageBanner extends StatelessWidget {
+  const ImageBanner({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 430, vertical: 20),
+      height: 350,
       width: double.infinity,
-      height: 520,
+      padding: const EdgeInsets.symmetric(horizontal: 430.0),
       decoration: BoxDecoration(
+        color: kPrimaryColor,
         image: DecorationImage(
-          image: const AssetImage('assets/images/home.jpg'),
+          image: const AssetImage('assets/images/wash.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.3),
+            const Color(0xff65A234).withOpacity(0.5),
             BlendMode.srcOver,
           ),
         ),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             style: kTitleTextStyle,
             textAlign: TextAlign.center,
           ),
+          SizedBox(height: 20.0),
           Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: kBodyTextStyleWhite,
             textAlign: TextAlign.center,
           ),
-          CustomButton(text: 'Contact Us'),
         ],
       ),
     );

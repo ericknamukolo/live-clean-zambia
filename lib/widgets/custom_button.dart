@@ -4,8 +4,10 @@ import '../constants/colors.dart';
 import '../constants/text.dart';
 
 class CustomButton extends StatelessWidget {
+  final String text;
   const CustomButton({
     Key? key,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -17,7 +19,7 @@ class CustomButton extends StatelessWidget {
         minimumSize: const Size(280, 60),
       ),
       child: Text(
-        'Contact Us',
+        text,
         style: kBodyTitleTextStyleGrey.copyWith(
           color: Colors.white,
         ),

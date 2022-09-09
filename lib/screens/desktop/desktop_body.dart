@@ -5,6 +5,7 @@ import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_gallery.dart';
 import '../../widgets/desktop/desktop_home.dart';
 import '../../widgets/desktop/desktop_services.dart';
+import '../../widgets/desktop/desktop_team.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
@@ -33,6 +34,8 @@ class _DesktopBodyState extends State<DesktopBody> {
                     DesktopHome(),
                     DesktopServices(),
                     DesktopGallery(),
+                    DesktopTeam(),
+                    Container(),
                   ],
                 ),
               ),
