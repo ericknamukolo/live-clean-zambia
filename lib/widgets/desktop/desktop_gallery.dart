@@ -59,7 +59,12 @@ class DesktopGallery extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 80.0),
-          const ImageBanner(),
+          const ImageBanner(
+            des:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            img: 'assets/images/wash.jpg',
+            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          ),
           const SizedBox(height: 100.0),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 140.0),

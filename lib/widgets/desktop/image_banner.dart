@@ -4,8 +4,14 @@ import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
 class ImageBanner extends StatelessWidget {
+  final String img;
+  final String title;
+  final String des;
   const ImageBanner({
     Key? key,
+    required this.des,
+    required this.title,
+    required this.img,
   }) : super(key: key);
 
   @override
@@ -17,7 +23,8 @@ class ImageBanner extends StatelessWidget {
       decoration: BoxDecoration(
         color: kPrimaryColor,
         image: DecorationImage(
-          image: const AssetImage('assets/images/wash.jpg'),
+          alignment: Alignment.bottomCenter,
+          image: AssetImage(img),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             const Color(0xff65A234).withOpacity(0.5),
@@ -27,15 +34,15 @@ class ImageBanner extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            title,
             style: kTitleTextStyle,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            des,
             style: kBodyTextStyleWhite,
             textAlign: TextAlign.center,
           ),
