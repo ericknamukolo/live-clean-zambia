@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
-import 'package:live_clean_zambia/widgets/custom_button.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 
 import '../../constants/text.dart';
+import 'text_and_image.dart';
 
 class DesktopGallery extends StatelessWidget {
   const DesktopGallery({
@@ -66,57 +66,7 @@ class DesktopGallery extends StatelessWidget {
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           ),
           const SizedBox(height: 100.0),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 140.0),
-            child: IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                          style:
-                              kBodyTitleTextStyleGrey.copyWith(fontSize: 24.0),
-                        ),
-                        const SizedBox(height: 30.0),
-                        const Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis. Posuere morbi leo urna molestie at elementum eu facilisis sed. Nulla facilisi morbi tempus iaculis urna. Odio aenean sed adipiscing diam donec. Blandit aliquam etiam erat velit scelerisque in dictum. Facilisi cras fermentum odio eu feugiat. Blandit massa enim nec dui. Faucibus pulvinar elementum integer enim neque volutpat ac. Sed augue lacus viverra vitae congue. Eu consequat ac felis donec et odio pellentesque. Leo vel orci porta non pulvinar neque laoreet suspendisse.',
-                          style: kBodyTextStyleGrey,
-                        ),
-                        const Spacer(),
-                        const CustomButton(text: 'Learn More'),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 40.0),
-                      width: 556,
-                      height: 370,
-                      decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: kPrimaryColor.withOpacity(.4),
-                            offset: const Offset(-20.0, 20.0),
-                            blurStyle: BlurStyle.solid,
-                          ),
-                        ],
-                        image: const DecorationImage(
-                          image: AssetImage(
-                              'assets/images/pexels-andrea-piacquadio-3764545.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const TextAndImage(hasbtn: true),
         ],
       ),
     );
