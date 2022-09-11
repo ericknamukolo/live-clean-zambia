@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/screens/desktop/desktop_body.dart';
+import 'package:live_clean_zambia/screens/loading_screen.dart';
 import 'package:live_clean_zambia/widgets/responsive_layout.dart';
 
 void main() {
@@ -17,11 +18,7 @@ class LiveCleanZambia extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Montserrat',
       ),
-      home: const ResponsiveLayout(
-        desktopBody: DesktopBody(),
-        mobileBody: Text('Mobile'),
-        tabletBody: Text('Table'),
-      ),
+      home: const LoadingScreen(),
     );
   }
 }
