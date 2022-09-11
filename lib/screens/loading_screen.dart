@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/constants/colors.dart';
+import 'package:live_clean_zambia/constants/text.dart';
 import 'package:live_clean_zambia/screens/desktop/desktop_body.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../widgets/responsive_layout.dart';
 
@@ -58,9 +61,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Loading'),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(),
+          LoadingAnimationWidget.threeRotatingDots(
+              color: kPrimaryColor, size: 60.0),
+          const SizedBox(height: 10.0),
+          const Text(
+            'Please Wait',
+            style: kBodyTextStyleGrey,
+          ),
+        ],
       ),
     );
   }
