@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:live_clean_zambia/screens/desktop/desktop_body.dart';
 import 'package:live_clean_zambia/screens/loading_screen.dart';
-import 'package:live_clean_zambia/widgets/responsive_layout.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const LiveCleanZambia());
 }
 
