@@ -42,4 +42,10 @@ class SiteData {
     'assets/images/gallery5.jpg',
     'assets/images/gallery6.jpg',
   ];
+
+  static List<String> toilets = [
+    'Kanyama Market, Lusaka',
+    'Buseko Market, Lusaka',
+    'Tokyo Way Market, Lusaka',
+  ];
 }
