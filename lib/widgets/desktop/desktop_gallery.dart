@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
+import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 
 import '../../constants/text.dart';
 import 'text_and_image.dart';
@@ -19,24 +20,7 @@ class DesktopGallery extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          Text(
-            'Gallery',
-            style: kTitleTextStyle.copyWith(
-              fontSize: 30,
-              fontWeight: FontWeight.w600,
-              color: kSecondaryColor,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 10.0),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 400.0),
-            child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-              style: kBodyTextStyleGrey,
-              textAlign: TextAlign.center,
-            ),
-          ),
+          const TextTitle(title: 'Gallery'),
           const SizedBox(height: 40.0),
           GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 140.0),

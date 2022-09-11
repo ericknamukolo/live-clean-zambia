@@ -6,7 +6,9 @@ import 'package:live_clean_zambia/constants/text.dart';
 import 'package:live_clean_zambia/screens/desktop/desktop_body.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+import '../widgets/mobile/mobile_body.dart';
 import '../widgets/responsive_layout.dart';
+import '../widgets/tablet/tablet_body.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({super.key});
@@ -25,8 +27,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
           MaterialPageRoute(
             builder: (context) => const ResponsiveLayout(
               desktopBody: DesktopBody(),
-              mobileBody: Text('Mobile'),
-              tabletBody: Text('Table'),
+              mobileBody: MobileBody(),
+              tabletBody: TabletBody(),
             ),
           ),
         );

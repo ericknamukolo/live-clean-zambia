@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/constants/colors.dart';
+import 'package:live_clean_zambia/constants/text.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../widgets/desktop/desktop_about.dart';
 import '../../widgets/desktop/desktop_appbar.dart';
+import '../../widgets/desktop/desktop_contact.dart';
 import '../../widgets/desktop/desktop_gallery.dart';
 import '../../widgets/desktop/desktop_home.dart';
 import '../../widgets/desktop/desktop_services.dart';
 import '../../widgets/desktop/desktop_team.dart';
+import '../../widgets/desktop/text_title.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
@@ -37,6 +42,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                     DesktopGallery(),
                     DesktopTeam(),
                     DesktopAbout(),
+                    DesktopContact(),
                   ],
                 ),
               ),

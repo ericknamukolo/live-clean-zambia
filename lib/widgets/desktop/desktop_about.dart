@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
+import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -32,24 +33,7 @@ class DesktopAbout extends StatelessWidget {
               const SizedBox(height: 100.0),
               const TextAndImage(isReversed: true),
               const SizedBox(height: 60.0),
-              Text(
-                'Our Toilets',
-                style: kTitleTextStyle.copyWith(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: kSecondaryColor,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 10.0),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 400.0),
-                child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                  style: kBodyTextStyleGrey,
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              const TextTitle(title: 'Our Toilets'),
               const SizedBox(height: 40.0),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 140.0),
