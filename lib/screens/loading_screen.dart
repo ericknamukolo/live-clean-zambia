@@ -23,7 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Timer(
       const Duration(seconds: 3),
       () {
-        Navigator.of(context).push(
+        Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => const ResponsiveLayout(
               desktopBody: DesktopBody(),
