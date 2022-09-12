@@ -4,7 +4,6 @@ import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 
-import '../../constants/text.dart';
 import 'text_and_image.dart';
 
 class DesktopGallery extends StatelessWidget {

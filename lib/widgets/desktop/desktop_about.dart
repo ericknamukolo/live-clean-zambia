@@ -3,8 +3,6 @@ import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 
-import '../../constants/colors.dart';
-import '../../constants/text.dart';
 import '../../providers/site_data.dart';
 import 'toilet_location_card.dart';
 
