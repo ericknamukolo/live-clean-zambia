@@ -40,6 +40,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void didChangeDependencies() {
     precacheImage(const AssetImage('assets/images/home.jpg'), context);
+    precacheImage(const AssetImage('assets/images/logo.png'), context);
     precacheImage(const AssetImage('assets/images/gallery1.jpg'), context);
     precacheImage(const AssetImage('assets/images/gallery2.jpg'), context);
     precacheImage(const AssetImage('assets/images/gallery3.jpg'), context);
