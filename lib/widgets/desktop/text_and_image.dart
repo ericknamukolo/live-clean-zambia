@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pod_player/pod_player.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -7,10 +8,12 @@ import '../custom_button.dart';
 class TextAndImage extends StatelessWidget {
   final bool hasbtn;
   final bool isReversed;
+  final String? vidUrl;
   const TextAndImage({
     Key? key,
     this.hasbtn = false,
     this.isReversed = false,
+    this.vidUrl,
   }) : super(key: key);
 
   @override
@@ -22,12 +25,12 @@ class TextAndImage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: isReversed
               ? [
-                  ImgPart(isReversed: isReversed),
+                  ImgPart(isReversed: isReversed, vidUrl: vidUrl),
                   TextPart(hasbtn: hasbtn),
                 ]
               : [
                   TextPart(hasbtn: hasbtn),
-                  ImgPart(isReversed: isReversed),
+                  ImgPart(isReversed: isReversed, vidUrl: vidUrl),
                 ],
         ),
       ),
@@ -35,37 +38,69 @@ class TextAndImage extends StatelessWidget {
   }
 }
 
-class ImgPart extends StatelessWidget {
+class ImgPart extends StatefulWidget {
   final bool isReversed;
+  final String? vidUrl;
   const ImgPart({
     Key? key,
     required this.isReversed,
+    this.vidUrl,
   }) : super(key: key);
+
+  @override
+  State<ImgPart> createState() => _ImgPartState();
+}
+
+class _ImgPartState extends State<ImgPart> {
+  late final PodPlayerController controller;
+  @override
+  void initState() {
+    controller = PodPlayerController(
+      playVideoFrom: PlayVideoFrom.youtube(
+          'https://crossorigin.me/https://www.youtube.com/watch?v=hxD9la6qgjM'),
+    )..initialise();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        margin: EdgeInsets.only(
-            left: isReversed ? 0.0 : 40.0, right: isReversed ? 40.0 : 0.0),
-        width: 556,
-        height: 370,
-        decoration: BoxDecoration(
-          color: kPrimaryColor,
-          boxShadow: [
-            BoxShadow(
-              color: kPrimaryColor.withOpacity(.4),
-              offset: const Offset(-20.0, 20.0),
-              blurStyle: BlurStyle.solid,
+      child: widget.vidUrl == null
+          ? Container(
+              margin: EdgeInsets.only(
+                  left: widget.isReversed ? 0.0 : 40.0,
+                  right: widget.isReversed ? 40.0 : 0.0),
+              width: 556,
+              height: 370,
+              decoration: BoxDecoration(
+                color: kPrimaryColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: kPrimaryColor.withOpacity(.4),
+                    offset: const Offset(-20.0, 20.0),
+                    blurStyle: BlurStyle.solid,
+                  ),
+                ],
+                image: const DecorationImage(
+                  image: AssetImage(
+                      'assets/images/pexels-andrea-piacquadio-3764545.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          : PodVideoPlayer(
+              controller: controller,
+              podProgressBarConfig: const PodProgressBarConfig(
+                backgroundColor: kPrimaryColor,
+                circleHandlerColor: kPrimaryColor,
+              ),
             ),
-          ],
-          image: const DecorationImage(
-            image: AssetImage(
-                'assets/images/pexels-andrea-piacquadio-3764545.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
     );
   }
 }

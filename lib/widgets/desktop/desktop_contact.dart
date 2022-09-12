@@ -74,8 +74,12 @@ class DesktopContact extends StatelessWidget {
                     Row(
                       children: [
                         IconBtn(
-                          click: () async {},
-                          icon: MdiIcons.facebook,
+                          click: () async {
+                            Uri url = Uri.parse(
+                                'https://youtube.com/channel/UC0FOT2lyKqYHc1epLkY_LBg');
+                            await launchUrl(url);
+                          },
+                          icon: MdiIcons.youtube,
                         ),
                         const SizedBox(width: 14.0),
                         IconBtn(
@@ -90,7 +94,7 @@ class DesktopContact extends StatelessWidget {
                         IconBtn(
                           click: () async {
                             Uri url = Uri.parse(
-                                'https://linkedin.com/company/live-clean-initiatives/');
+                                'https://linkedin.com/company/live-clean-initiatives/?viewAsMember=true');
                             await launchUrl(url);
                           },
                           icon: MdiIcons.linkedin,
