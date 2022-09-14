@@ -1,4 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../widgets/desktop/desktop_about.dart';
@@ -30,6 +34,14 @@ class _DesktopBodyState extends State<DesktopBody> {
         duration: const Duration(seconds: 1));
   }
 
+  double _getPosition(GlobalKey key) {
+    RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
+    Offset position = box.localToGlobal(Offset.zero); //this is global position
+    double pos = position.dy;
+
+    return pos - 80.0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,22 +55,45 @@ class _DesktopBodyState extends State<DesktopBody> {
             team: () => _scrollToSection(teamKey),
             gallery: () => _scrollToSection(galleryKey),
           ),
-          Expanded(
-            child: WebSmoothScroll(
-              controller: _scrollController,
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  children: [
-                    DesktopHome(key: homeKey),
-                    DesktopServices(key: servicesKey),
-                    DesktopGallery(key: galleryKey),
-                    DesktopTeam(key: teamKey),
-                    DesktopAbout(key: aboutKey),
-                    const DesktopContact(),
-                    const DesktopFooter(),
-                  ],
+          Consumer<SiteData>(
+            builder: (context, data, __) => Expanded(
+              child: NotificationListener<ScrollNotification>(
+                onNotification: (ScrollNotification info) {
+                  if (_getPosition(homeKey) <= 0.0 &&
+                      _getPosition(servicesKey) > 0.0) {
+                    data.triggerSelection(0);
+                  } else if (_getPosition(servicesKey) <= 0.0 &&
+                      _getPosition(galleryKey) > 0.0) {
+                    data.triggerSelection(1);
+                  } else if (_getPosition(galleryKey) <= 0.0 &&
+                      _getPosition(teamKey) > 0.0) {
+                    data.triggerSelection(2);
+                  } else if (_getPosition(teamKey) <= 0.0 &&
+                      _getPosition(aboutKey) > 0.0) {
+                    data.triggerSelection(3);
+                  } else if (_getPosition(aboutKey) <= 0.0) {
+                    data.triggerSelection(4);
+                  }
+
+                  return true;
+                },
+                child: WebSmoothScroll(
+                  controller: _scrollController,
+                  child: SingleChildScrollView(
+                    controller: _scrollController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    child: Column(
+                      children: [
+                        DesktopHome(key: homeKey),
+                        DesktopServices(key: servicesKey),
+                        DesktopGallery(key: galleryKey),
+                        DesktopTeam(key: teamKey),
+                        DesktopAbout(key: aboutKey),
+                        const DesktopContact(),
+                        const DesktopFooter(),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),

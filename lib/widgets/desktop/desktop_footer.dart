@@ -18,11 +18,12 @@ class DesktopFooter extends StatelessWidget {
             children: const [],
           ),
           Text(
-            'ⓒ Live Clean Zambia, 2022.',
+            '© Live Clean Zambia, 2022.',
             style: kBodyTextStyleWhite.copyWith(
               fontWeight: FontWeight.normal,
             ),
           ),
+          const SizedBox(height: 10.0),
           TextButton(
             onPressed: () async {
               Uri url = Uri.parse('https://ericknamukolo.github.io/');

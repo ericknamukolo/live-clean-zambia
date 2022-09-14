@@ -6,10 +6,12 @@ import '../../constants/text.dart';
 class AppBarItem extends StatefulWidget {
   final String label;
   final Function() click;
+  final double indi;
   const AppBarItem({
     Key? key,
     required this.label,
     required this.click,
+    required this.indi,
   }) : super(key: key);
 
   @override
@@ -37,16 +39,28 @@ class _AppBarItemState extends State<AppBarItem> {
             Text(
               widget.label,
               style: kBodyTitleTextStyleGrey.copyWith(
-                color: _isHovered ? kSecondaryColor : kBodyTextStyleGrey.color,
+                color: _isHovered
+                    ? kSecondaryColor
+                    : widget.indi == 0.0
+                        ? kBodyTextStyleGrey.color
+                        : kSecondaryColor,
               ),
             ),
             AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                height: _isHovered ? 2.5 : 0),
+                height: _isHovered
+                    ? 2.5
+                    : widget.indi == 0.0
+                        ? 0
+                        : 2.5),
             AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              height: _isHovered ? 4 : 0,
-              width: _isHovered ? 45 : 0,
+              height: _isHovered
+                  ? 4
+                  : widget.indi == 0.0
+                      ? 0
+                      : 4,
+              width: _isHovered ? 45 : widget.indi,
               color: kSecondaryColor,
             ),
           ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:provider/provider.dart';
 import 'appbar_item.dart';
 
 class DesktopAppBar extends StatelessWidget {
@@ -33,20 +35,23 @@ class DesktopAppBar extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          Image.asset('assets/images/logo.png', width: 200),
-          const Spacer(),
-          AppBarItem(label: 'Home', click: home),
-          const SizedBox(width: 30.0),
-          AppBarItem(label: 'What We Do', click: services),
-          const SizedBox(width: 30.0),
-          AppBarItem(label: 'Gallery', click: gallery),
-          const SizedBox(width: 30.0),
-          AppBarItem(label: 'Team', click: team),
-          const SizedBox(width: 30.0),
-          AppBarItem(label: 'About', click: about),
-        ],
+      child: Consumer<SiteData>(
+        builder: (context, data, __) => Row(
+          children: [
+            Image.asset('assets/images/logo.png', width: 200),
+            const Spacer(),
+            AppBarItem(label: 'Home', click: home, indi: data.pages[0]),
+            const SizedBox(width: 30.0),
+            AppBarItem(
+                label: 'What We Do', click: services, indi: data.pages[1]),
+            const SizedBox(width: 30.0),
+            AppBarItem(label: 'Gallery', click: gallery, indi: data.pages[2]),
+            const SizedBox(width: 30.0),
+            AppBarItem(label: 'Team', click: team, indi: data.pages[3]),
+            const SizedBox(width: 30.0),
+            AppBarItem(label: 'About', click: about, indi: data.pages[4]),
+          ],
+        ),
       ),
     );
   }
