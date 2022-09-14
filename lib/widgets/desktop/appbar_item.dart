@@ -5,9 +5,11 @@ import '../../constants/text.dart';
 
 class AppBarItem extends StatefulWidget {
   final String label;
+  final Function() click;
   const AppBarItem({
     Key? key,
     required this.label,
+    required this.click,
   }) : super(key: key);
 
   @override
@@ -26,26 +28,29 @@ class _AppBarItemState extends State<AppBarItem> {
       onExit: (_) => setState(() {
         _isHovered = false;
       }),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            widget.label,
-            style: kBodyTitleTextStyleGrey.copyWith(
-              color: _isHovered ? kSecondaryColor : kBodyTextStyleGrey.color,
+      child: GestureDetector(
+        onTap: widget.click,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              widget.label,
+              style: kBodyTitleTextStyleGrey.copyWith(
+                color: _isHovered ? kSecondaryColor : kBodyTextStyleGrey.color,
+              ),
             ),
-          ),
-          AnimatedContainer(
+            AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                height: _isHovered ? 2.5 : 0),
+            AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              height: _isHovered ? 2.5 : 0),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            height: _isHovered ? 4 : 0,
-            width: _isHovered ? 45 : 0,
-            color: kSecondaryColor,
-          ),
-        ],
+              height: _isHovered ? 4 : 0,
+              width: _isHovered ? 45 : 0,
+              color: kSecondaryColor,
+            ),
+          ],
+        ),
       ),
     );
   }

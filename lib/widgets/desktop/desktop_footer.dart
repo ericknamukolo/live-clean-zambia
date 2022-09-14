@@ -17,9 +17,11 @@ class DesktopFooter extends StatelessWidget {
           Row(
             children: const [],
           ),
-          const Text(
-            'ⓒ Live Clean Zambia, 2022',
-            style: kBodyTextStyleWhite,
+          Text(
+            'ⓒ Live Clean Zambia, 2022.',
+            style: kBodyTextStyleWhite.copyWith(
+              fontWeight: FontWeight.normal,
+            ),
           ),
           TextButton(
             onPressed: () async {

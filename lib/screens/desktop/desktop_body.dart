@@ -19,13 +19,30 @@ class DesktopBody extends StatefulWidget {
 
 class _DesktopBodyState extends State<DesktopBody> {
   final _scrollController = ScrollController();
+  final homeKey = GlobalKey();
+  final servicesKey = GlobalKey();
+  final galleryKey = GlobalKey();
+  final teamKey = GlobalKey();
+  final aboutKey = GlobalKey();
+
+  void _scrollToSection(GlobalKey key) {
+    Scrollable.ensureVisible(key.currentContext!,
+        duration: const Duration(seconds: 1));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffF3F5FB),
       body: Column(
         children: [
-          const DesktopAppBar(),
+          DesktopAppBar(
+            about: () => _scrollToSection(aboutKey),
+            home: () => _scrollToSection(homeKey),
+            services: () => _scrollToSection(servicesKey),
+            team: () => _scrollToSection(teamKey),
+            gallery: () => _scrollToSection(galleryKey),
+          ),
           Expanded(
             child: WebSmoothScroll(
               controller: _scrollController,
@@ -33,14 +50,14 @@ class _DesktopBodyState extends State<DesktopBody> {
                 controller: _scrollController,
                 physics: const NeverScrollableScrollPhysics(),
                 child: Column(
-                  children: const [
-                    DesktopHome(),
-                    DesktopServices(),
-                    DesktopGallery(),
-                    DesktopTeam(),
-                    DesktopAbout(),
-                    DesktopContact(),
-                    DesktopFooter(),
+                  children: [
+                    DesktopHome(key: homeKey),
+                    DesktopServices(key: servicesKey),
+                    DesktopGallery(key: galleryKey),
+                    DesktopTeam(key: teamKey),
+                    DesktopAbout(key: aboutKey),
+                    const DesktopContact(),
+                    const DesktopFooter(),
                   ],
                 ),
               ),

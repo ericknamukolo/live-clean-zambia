@@ -32,10 +32,10 @@ class DesktopGallery extends StatelessWidget {
               mainAxisSpacing: 20.0,
             ),
             itemBuilder: (context, index) => Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: kPrimaryColor,
                 image: DecorationImage(
-                  image: AssetImage(SiteData.gallery[index]),
+                  image: AssetImage('assets/images/img.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),

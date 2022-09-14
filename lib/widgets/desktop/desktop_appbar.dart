@@ -3,8 +3,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'appbar_item.dart';
 
 class DesktopAppBar extends StatelessWidget {
+  final Function() home;
+  final Function() services;
+  final Function() gallery;
+  final Function() team;
+  final Function() about;
   const DesktopAppBar({
     Key? key,
+    required this.about,
+    required this.services,
+    required this.gallery,
+    required this.team,
+    required this.home,
   }) : super(key: key);
 
   @override
@@ -27,15 +37,15 @@ class DesktopAppBar extends StatelessWidget {
         children: [
           Image.asset('assets/images/logo.png', width: 200),
           const Spacer(),
-          const AppBarItem(label: 'Home'),
+          AppBarItem(label: 'Home', click: home),
           const SizedBox(width: 30.0),
-          const AppBarItem(label: 'What We Do'),
+          AppBarItem(label: 'What We Do', click: services),
           const SizedBox(width: 30.0),
-          const AppBarItem(label: 'Gallery'),
+          AppBarItem(label: 'Gallery', click: gallery),
           const SizedBox(width: 30.0),
-          const AppBarItem(label: 'Team'),
+          AppBarItem(label: 'Team', click: team),
           const SizedBox(width: 30.0),
-          const AppBarItem(label: 'About'),
+          AppBarItem(label: 'About', click: about),
         ],
       ),
     );
