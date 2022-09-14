@@ -30,7 +30,7 @@ class DesktopFooter extends StatelessWidget {
               await launchUrl(url);
             },
             child: Text(
-              'Built by Erick Namukolo',
+              'Developed by Erick Namukolo',
               style: kBodyTextStyleGrey.copyWith(
                 letterSpacing: 1.0,
                 fontSize: 13.0,
