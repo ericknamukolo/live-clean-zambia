@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:live_clean_zambia/screens/loading_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
@@ -19,13 +20,15 @@ class LiveCleanZambia extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => SiteData()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Live Clean Zambia',
-        theme: ThemeData(
-          fontFamily: 'Montserrat',
-        ),
-        home: const LoadingScreen(),
+      child: Sizer(
+        builder: ((context, orientation, deviceType) => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Live Clean Zambia',
+              theme: ThemeData(
+                fontFamily: 'Montserrat',
+              ),
+              home: const LoadingScreen(),
+            )),
       ),
     );
   }

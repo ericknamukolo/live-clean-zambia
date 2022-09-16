@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/text.dart';
+import 'package:sizer/sizer.dart';
 
 import '../custom_button.dart';
 
@@ -11,9 +12,9 @@ class DesktopHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 430, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20),
       width: double.infinity,
-      height: 520,
+      height: 75.h,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: const AssetImage('assets/images/home.jpg'),
@@ -26,18 +27,20 @@ class DesktopHome extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
+        children: [
           Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            style: kTitleTextStyle,
+            style: kTitleTextStyle.copyWith(
+              fontSize: 8.sp,
+            ),
             textAlign: TextAlign.center,
           ),
-          Text(
+          const Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: kBodyTextStyleWhite,
             textAlign: TextAlign.center,
           ),
-          CustomButton(text: 'Contact Us'),
+          const CustomButton(text: 'Contact Us'),
         ],
       ),
     );
