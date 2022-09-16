@@ -68,4 +68,14 @@ class SiteData with ChangeNotifier {
     'Buseko Market, Lusaka',
     'Tokyo Way Market, Lusaka',
   ];
+
+  static getWidth(double width) {
+    double wid = (width * 10) / 136.6;
+    print('Width = ${wid}w');
+  }
+
+  static getHeight(double height) {
+    double h = (height * 10) / 69.7;
+    print('Height = ${h}h');
+  }
 }

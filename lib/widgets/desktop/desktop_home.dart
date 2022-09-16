@@ -12,7 +12,7 @@ class DesktopHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 2.88.h),
       width: double.infinity,
       height: 75.h,
       decoration: BoxDecoration(

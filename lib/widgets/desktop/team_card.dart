@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
+import '../../providers/site_data.dart';
 
 class TeamCard extends StatelessWidget {
   const TeamCard({
@@ -10,9 +12,11 @@ class TeamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SiteData.getHeight(300);
+    SiteData.getWidth(240);
     return Container(
-      height: 300,
-      width: 240,
+      height: 43.h,
+      width: 17.5.w,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,

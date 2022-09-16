@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -15,7 +16,7 @@ class BlueBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 400, vertical: 50),
+      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.19.h),
       width: double.infinity,
       height: 180,
       color: kSecondaryColor,
