@@ -12,6 +12,8 @@ class DesktopServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,7 +30,7 @@ class DesktopServices extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: SiteData.services
-                    .getRange(0, 3)
+                    .getRange(0, screen ? 3 : 2)
                     .map(
                       (service) => ServiceCard(service: service),
                     )
@@ -38,11 +40,24 @@ class DesktopServices extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: SiteData.services
-                    .getRange(3, 6)
+                    .getRange(screen ? 3 : 2, screen ? 6 : 4)
                     .map(
                       (service) => ServiceCard(service: service),
                     )
                     .toList(),
+              ),
+              SizedBox(height: screen ? 0 : 11.52.h),
+              Visibility(
+                visible: !screen,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: SiteData.services
+                      .getRange(4, 6)
+                      .map(
+                        (service) => ServiceCard(service: service),
+                      )
+                      .toList(),
+                ),
               ),
             ],
           ),

@@ -21,14 +21,14 @@ class LiveCleanZambia extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => SiteData()),
       ],
       child: Sizer(
-        builder: ((context, orientation, deviceType) => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Live Clean Zambia',
-              theme: ThemeData(
-                fontFamily: 'Montserrat',
-              ),
-              home: const LoadingScreen(),
-            )),
+        builder: (context, orientation, deviceType) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Live Clean Zambia',
+          theme: ThemeData(
+            fontFamily: 'Montserrat',
+          ),
+          home: const LoadingScreen(),
+        ),
       ),
     );
   }

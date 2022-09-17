@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -12,6 +14,8 @@ class TextTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
+
     return Column(
       children: [
         Text(
@@ -24,9 +28,9 @@ class TextTitle extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10.0),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 400.0),
-          child: Text(
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: screen ? 29.28.w : 200),
+          child: const Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: kBodyTextStyleGrey,
             textAlign: TextAlign.center,

@@ -13,6 +13,7 @@ class DesktopGallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 80.0),
       color: Colors.white,
@@ -25,8 +26,8 @@ class DesktopGallery extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 140.0),
             shrinkWrap: true,
             itemCount: 6,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: screen ? 3 : 2,
               childAspectRatio: 3 / 2,
               crossAxisSpacing: 20.0,
               mainAxisSpacing: 20.0,

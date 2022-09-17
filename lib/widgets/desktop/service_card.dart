@@ -14,6 +14,7 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -27,14 +28,14 @@ class ServiceCard extends StatelessWidget {
           ),
         ],
       ),
-      height: 46.h,
-      width: 19.77.w,
+      height: screen ? 46.h : 320,
+      width: screen ? 19.77.w : 270,
       child: Column(
         children: [
           Container(
             padding: EdgeInsets.symmetric(vertical: 2.15.h, horizontal: 0.73.w),
-            height: 5.12.w,
-            width: 5.12.w,
+            height: screen ? 5.12.w : 70.0,
+            width: screen ? 5.12.w : 70.0,
             decoration: BoxDecoration(
               color: const Color(0x26319DA0),
               borderRadius: BorderRadius.circular(10.0),
