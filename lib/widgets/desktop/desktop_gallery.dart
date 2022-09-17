@@ -50,7 +50,7 @@ class DesktopGallery extends StatelessWidget {
             title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           ),
           const SizedBox(height: 100.0),
-          const TextAndImage(hasbtn: true),
+          const TextAndImage(hasbtn: false),
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -15,21 +17,30 @@ class TextAndImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
+    //  SiteData.getWidth(140.0);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 140.0),
+      padding: EdgeInsets.symmetric(horizontal: 10.24.w),
       child: IntrinsicHeight(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: isReversed
-              ? [
-                  ImgPart(isReversed: isReversed),
-                  TextPart(hasbtn: hasbtn),
-                ]
-              : [
+        child: screen
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: isReversed
+                    ? [
+                        ImgPart(isReversed: isReversed),
+                        TextPart(hasbtn: hasbtn),
+                      ]
+                    : [
+                        TextPart(hasbtn: hasbtn),
+                        ImgPart(isReversed: isReversed),
+                      ],
+              )
+            : Column(
+                children: [
                   TextPart(hasbtn: hasbtn),
                   ImgPart(isReversed: isReversed),
                 ],
-        ),
+              ),
       ),
     );
   }
@@ -44,12 +55,15 @@ class ImgPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(
-            left: isReversed ? 0.0 : 40.0, right: isReversed ? 40.0 : 0.0),
-        width: 556,
-        height: 370,
+        margin: screen
+            ? EdgeInsets.only(
+                left: isReversed ? 0.0 : 40.0, right: isReversed ? 40.0 : 0.0)
+            : null,
+        width: screen ? 40.7.w : 500,
+        height: screen ? 27.086.w : 280,
         decoration: BoxDecoration(
           color: kPrimaryColor,
           boxShadow: [
@@ -94,6 +108,7 @@ class TextPart extends StatelessWidget {
             style: kBodyTextStyleGrey,
           ),
           const Spacer(),
+          const SizedBox(height: 20.0),
           Visibility(
             visible: hasbtn,
             child: const CustomButton(text: 'Learn More'),

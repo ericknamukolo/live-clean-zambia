@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -16,10 +18,12 @@ class ImageBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
+
     return Container(
       height: 350,
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 430.0),
+      padding: EdgeInsets.symmetric(horizontal: screen ? 31.4.w : 200.0),
       decoration: BoxDecoration(
         color: kPrimaryColor,
         image: DecorationImage(
