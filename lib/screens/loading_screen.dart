@@ -5,7 +5,7 @@ import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/constants/text.dart';
 import 'package:live_clean_zambia/screens/desktop/desktop_body.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import '../widgets/mobile/mobile_body.dart';
+import 'mobile/mobile_body.dart';
 import '../widgets/responsive_layout.dart';
 
 class LoadingScreen extends StatefulWidget {
