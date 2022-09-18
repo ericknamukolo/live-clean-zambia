@@ -14,7 +14,7 @@ class MobileBody extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             height: 60.0,
             decoration: const BoxDecoration(
               color: Colors.white,
