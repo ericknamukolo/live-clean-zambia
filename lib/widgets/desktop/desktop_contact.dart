@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/colors.dart';
@@ -21,7 +22,7 @@ class DesktopContact extends StatelessWidget {
           const TextTitle(title: 'Contact Us'),
           const SizedBox(height: 20),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 140.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.2.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

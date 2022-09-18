@@ -10,9 +10,10 @@ class TeamCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
-      height: 43.h,
-      width: 17.5.w,
+      height: screen ? 43.h : 300,
+      width: screen ? 17.5.w : 240,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,

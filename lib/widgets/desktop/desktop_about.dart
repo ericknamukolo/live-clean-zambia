@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../providers/site_data.dart';
 import 'toilet_location_card.dart';
@@ -13,6 +14,7 @@ class DesktopAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Column(
       children: [
         const ImageBanner(
@@ -34,29 +36,34 @@ class DesktopAbout extends StatelessWidget {
               const TextTitle(title: 'Our Toilets'),
               const SizedBox(height: 40.0),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 140.0),
+                padding: EdgeInsets.symmetric(horizontal: 10.2.w),
                 child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: SiteData.toilets
-                          .getRange(0, 2)
-                          .map(
-                            (tl) => ToiletLocationCard(place: tl),
-                          )
+                  children: screen
+                      ? [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: SiteData.toilets
+                                .getRange(0, 2)
+                                .map(
+                                  (tl) => ToiletLocationCard(place: tl),
+                                )
+                                .toList(),
+                          ),
+                          const SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: SiteData.toilets
+                                .getRange(2, 3)
+                                .map(
+                                  (tl) => ToiletLocationCard(place: tl),
+                                )
+                                .toList(),
+                          ),
+                        ]
+                      : SiteData.toilets
+                          .map((tl) =>
+                              ToiletLocationCard(place: tl, addSpace: true))
                           .toList(),
-                    ),
-                    const SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: SiteData.toilets
-                          .getRange(2, 3)
-                          .map(
-                            (tl) => ToiletLocationCard(place: tl),
-                          )
-                          .toList(),
-                    ),
-                  ],
                 ),
               ),
             ],

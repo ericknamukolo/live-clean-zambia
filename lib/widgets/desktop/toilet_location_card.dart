@@ -5,9 +5,11 @@ import '../../constants/text.dart';
 
 class ToiletLocationCard extends StatelessWidget {
   final String place;
+  final bool addSpace;
   const ToiletLocationCard({
     Key? key,
     required this.place,
+    this.addSpace = false,
   }) : super(key: key);
 
   @override
@@ -58,6 +60,7 @@ class ToiletLocationCard extends StatelessWidget {
             ),
           ],
         ),
+        SizedBox(height: addSpace ? 30.0 : 0.0),
       ],
     );
   }
