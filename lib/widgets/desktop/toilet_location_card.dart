@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/models/toilet.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
 class ToiletLocationCard extends StatelessWidget {
-  final String place;
+  final Toilet tl;
   final bool addSpace;
   const ToiletLocationCard({
     Key? key,
-    required this.place,
+    required this.tl,
     this.addSpace = false,
   }) : super(key: key);
 
@@ -20,17 +21,17 @@ class ToiletLocationCard extends StatelessWidget {
         Container(
           height: 280,
           width: 500,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: kPrimaryColor,
             image: DecorationImage(
-              image: AssetImage('assets/images/img.jpg'),
+              image: AssetImage(tl.img),
               fit: BoxFit.cover,
             ),
           ),
         ),
         const SizedBox(height: 15.0),
         Text(
-          place,
+          tl.name,
           style: kBodyTitleTextStyleGrey.copyWith(
             color: kPrimaryColor,
           ),

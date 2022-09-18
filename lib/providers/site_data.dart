@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:live_clean_zambia/models/service.dart';
+import 'package:live_clean_zambia/models/toilet.dart';
 
 class SiteData with ChangeNotifier {
   final List<double> pages = [
@@ -63,10 +64,10 @@ class SiteData with ChangeNotifier {
     'assets/images/gallery6.jpg',
   ];
 
-  static List<String> toilets = [
-    'Kanyama Market, Lusaka',
-    'Buseko Market, Lusaka',
-    'Tokyo Way Market, Lusaka',
+  static List<Toilet> toilets = [
+    Toilet(name: 'Kanyama Market, Lusaka', img: 'assets/images/kanyama.jpg'),
+    Toilet(name: 'Tokyo Way Market, Lusaka', img: 'assets/images/kamwala.jpg'),
+    Toilet(name: 'Buseko Market, Lusaka', img: 'assets/images/buseko.jpg'),
   ];
 
   static getWidth(double width) {

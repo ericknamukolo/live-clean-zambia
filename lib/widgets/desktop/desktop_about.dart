@@ -45,7 +45,7 @@ class DesktopAbout extends StatelessWidget {
                             children: SiteData.toilets
                                 .getRange(0, 2)
                                 .map(
-                                  (tl) => ToiletLocationCard(place: tl),
+                                  (tl) => ToiletLocationCard(tl: tl),
                                 )
                                 .toList(),
                           ),
@@ -55,14 +55,14 @@ class DesktopAbout extends StatelessWidget {
                             children: SiteData.toilets
                                 .getRange(2, 3)
                                 .map(
-                                  (tl) => ToiletLocationCard(place: tl),
+                                  (tl) => ToiletLocationCard(tl: tl),
                                 )
                                 .toList(),
                           ),
                         ]
                       : SiteData.toilets
                           .map((tl) =>
-                              ToiletLocationCard(place: tl, addSpace: true))
+                              ToiletLocationCard(tl: tl, addSpace: true))
                           .toList(),
                 ),
               ),
