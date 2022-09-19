@@ -7,9 +7,11 @@ import '../../constants/text.dart';
 
 class TextTitle extends StatelessWidget {
   final String title;
+  final bool isMobile;
   const TextTitle({
     Key? key,
     required this.title,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class TextTitle extends StatelessWidget {
         Text(
           title,
           style: kTitleTextStyle.copyWith(
-            fontSize: 30,
+            fontSize: isMobile ? 20 : 30,
             fontWeight: FontWeight.w600,
             color: kSecondaryColor,
           ),
@@ -29,7 +31,12 @@ class TextTitle extends StatelessWidget {
         ),
         const SizedBox(height: 10.0),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: screen ? 29.28.w : 200),
+          padding: EdgeInsets.symmetric(
+              horizontal: isMobile
+                  ? 15.0
+                  : screen
+                      ? 29.28.w
+                      : 200),
           child: const Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             style: kBodyTextStyleGrey,

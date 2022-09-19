@@ -6,6 +6,7 @@ import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 import '../../constants/text.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
+import '../../widgets/mobile/mobile_gallery.dart';
 import '../../widgets/mobile/mobile_home.dart';
 import '../../widgets/mobile/mobile_services.dart';
 
@@ -88,6 +89,7 @@ class _MobileBodyState extends State<MobileBody> {
                 children: const [
                   MobileHome(),
                   MobileServices(),
+                  MobileGallery(),
                 ],
               ),
             ),
