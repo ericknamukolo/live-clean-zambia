@@ -11,7 +11,7 @@ class MobileHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       width: double.infinity,
       height: MediaQuery.of(context).size.height * .8,
       decoration: BoxDecoration(
