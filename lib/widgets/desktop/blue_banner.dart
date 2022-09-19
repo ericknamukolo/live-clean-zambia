@@ -7,18 +7,21 @@ import '../../constants/text.dart';
 class BlueBanner extends StatelessWidget {
   final String title;
   final String des;
+  final bool isMobile;
   const BlueBanner({
     Key? key,
     required this.des,
     required this.title,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 7.19.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: isMobile ? 15.0 : 30.w, vertical: isMobile ? 25 : 7.19.h),
       width: double.infinity,
-      height: 180,
+      height: isMobile ? 150 : 180,
       color: kSecondaryColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,7 +29,7 @@ class BlueBanner extends StatelessWidget {
           Text(
             title,
             style: kTitleTextStyle.copyWith(
-              fontSize: 30,
+              fontSize: isMobile ? 20 : 30,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,

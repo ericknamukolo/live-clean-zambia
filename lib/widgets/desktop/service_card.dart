@@ -7,9 +7,11 @@ import 'package:sizer/sizer.dart';
 
 class ServiceCard extends StatelessWidget {
   final Service service;
+  final bool isMobile;
   const ServiceCard({
     Key? key,
     required this.service,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -17,6 +19,7 @@ class ServiceCard extends StatelessWidget {
     bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
       padding: const EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: isMobile ? 30 : 0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),

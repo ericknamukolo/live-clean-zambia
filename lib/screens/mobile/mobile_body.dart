@@ -7,6 +7,7 @@ import '../../constants/text.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
 import '../../widgets/mobile/mobile_home.dart';
+import '../../widgets/mobile/mobile_services.dart';
 
 class MobileBody extends StatefulWidget {
   const MobileBody({
@@ -88,6 +89,7 @@ class _MobileBodyState extends State<MobileBody> {
                 child: Column(
                   children: const [
                     MobileHome(),
+                    MobileServices(),
                   ],
                 ),
               ),

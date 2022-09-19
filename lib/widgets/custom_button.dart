@@ -5,9 +5,11 @@ import '../constants/text.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final bool isMobile;
   const CustomButton({
     Key? key,
     required this.text,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -16,7 +18,7 @@ class CustomButton extends StatelessWidget {
       onPressed: () {},
       style: ElevatedButton.styleFrom(
         backgroundColor: kPrimaryColor,
-        minimumSize: const Size(280, 60),
+        minimumSize: Size(280, isMobile ? 50 : 60),
       ),
       child: Text(
         text,
