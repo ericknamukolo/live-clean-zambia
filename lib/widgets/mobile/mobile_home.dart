@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/constants/colors.dart';
 
 import '../../constants/text.dart';
 import '../custom_button.dart';
@@ -11,34 +12,14 @@ class MobileHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       width: double.infinity,
       height: MediaQuery.of(context).size.height * .8,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: const AssetImage('assets/images/home.jpg'),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.3),
-            BlendMode.srcOver,
-          ),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
-          Text(
-            'hello Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            style: kTitleTextStyle,
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            style: kBodyTextStyleWhite,
-            textAlign: TextAlign.center,
-          ),
-          CustomButton(text: 'Contact Us'),
-        ],
+      child: Image.asset(
+        'assets/images/home.jpg',
+        width: double.infinity,
+        fit: BoxFit.cover,
+        color: kPrimaryColor.withOpacity(.3),
+        colorBlendMode: BlendMode.modulate,
       ),
     );
   }
