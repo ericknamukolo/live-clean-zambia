@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:live_clean_zambia/screens/loading_screen.dart';
@@ -23,6 +25,7 @@ class LiveCleanZambia extends StatelessWidget {
       child: Sizer(
         builder: (context, orientation, deviceType) => MaterialApp(
           debugShowCheckedModeBanner: false,
+          //   scrollBehavior: MyCustomScrollBehavior(),
           title: 'Live Clean Zambia',
           theme: ThemeData(
             fontFamily: 'Montserrat',
@@ -33,3 +36,12 @@ class LiveCleanZambia extends StatelessWidget {
     );
   }
 }
+
+// class MyCustomScrollBehavior extends MaterialScrollBehavior {
+//   // Override behavior methods and getters like dragDevices
+//   @override
+//   Set<PointerDeviceKind> get dragDevices => {
+//         PointerDeviceKind.touch,
+//         PointerDeviceKind.mouse,
+//       };
+// }

@@ -81,17 +81,14 @@ class _MobileBodyState extends State<MobileBody> {
             ),
           ),
           Expanded(
-            child: WebSmoothScroll(
+            child: SingleChildScrollView(
               controller: _scrollController,
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  children: const [
-                    MobileHome(),
-                    MobileServices(),
-                  ],
-                ),
+              // physics: const NeverScrollableScrollPhysics(),
+              child: Column(
+                children: const [
+                  MobileHome(),
+                  MobileServices(),
+                ],
               ),
             ),
           )
