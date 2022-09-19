@@ -16,7 +16,7 @@ class MobileHome extends StatelessWidget {
       height: MediaQuery.of(context).size.height * .8,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage('assets/images/kanyama.jpg'),
+          image: const AssetImage('assets/images/home.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
