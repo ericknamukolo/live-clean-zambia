@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
-
-import '../../constants/text.dart';
-import '../../widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
 import '../../widgets/mobile/mobile_gallery.dart';
 import '../../widgets/mobile/mobile_home.dart';
@@ -22,6 +20,25 @@ class MobileBody extends StatefulWidget {
 
 class _MobileBodyState extends State<MobileBody> {
   final _scrollController = ScrollController();
+  final homeKey = GlobalKey();
+  final servicesKey = GlobalKey();
+  final galleryKey = GlobalKey();
+  final teamKey = GlobalKey();
+  final aboutKey = GlobalKey();
+
+  void _scrollToSection(GlobalKey key) {
+    Scrollable.ensureVisible(key.currentContext!,
+        duration: const Duration(seconds: 1));
+  }
+
+  double _getPosition(GlobalKey key) {
+    RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
+    Offset position = box.localToGlobal(Offset.zero); //this is global position
+    double pos = position.dy;
+
+    return pos - 60.0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,22 +47,54 @@ class _MobileBodyState extends State<MobileBody> {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
         width: MediaQuery.of(context).size.width * .45,
         color: Colors.white,
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: const Icon(MdiIcons.closeCircle,
-                    color: kPrimaryColor, size: 30.0),
+        child: Consumer<SiteData>(
+          builder: (context, data, __) => Column(
+            children: [
+              Container(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(MdiIcons.closeCircle,
+                      color: kPrimaryColor, size: 30.0),
+                ),
               ),
-            ),
-            const MobileAppBarItem(title: 'Home'),
-            const MobileAppBarItem(title: 'What We Do'),
-            const MobileAppBarItem(title: 'Gallery'),
-            const MobileAppBarItem(title: 'Team'),
-            const MobileAppBarItem(title: 'About'),
-          ],
+              MobileAppBarItem(
+                  title: 'Home',
+                  indi: data.pages[0],
+                  click: () {
+                    Navigator.of(context).pop();
+                    _scrollToSection(homeKey);
+                  }),
+              MobileAppBarItem(
+                  title: 'What We Do',
+                  indi: data.pages[1],
+                  click: () {
+                    Navigator.of(context).pop();
+                    _scrollToSection(servicesKey);
+                  }),
+              MobileAppBarItem(
+                  title: 'Gallery',
+                  indi: data.pages[2],
+                  click: () {
+                    Navigator.of(context).pop();
+                    _scrollToSection(galleryKey);
+                  }),
+              MobileAppBarItem(
+                  title: 'Team',
+                  indi: data.pages[3],
+                  click: () {
+                    Navigator.of(context).pop();
+                    _scrollToSection(teamKey);
+                  }),
+              MobileAppBarItem(
+                  title: 'About',
+                  indi: data.pages[4],
+                  click: () {
+                    Navigator.of(context).pop();
+                    _scrollToSection(aboutKey);
+                  }),
+            ],
+          ),
         ),
       ),
       body: Column(
@@ -82,17 +131,38 @@ class _MobileBodyState extends State<MobileBody> {
               ],
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              // physics: const NeverScrollableScrollPhysics(),
-              child: Column(
-                children: const [
-                  MobileHome(),
-                  MobileServices(),
-                  MobileGallery(),
-                  MobileTeam(),
-                ],
+          Consumer<SiteData>(
+            builder: (context, data, __) => Expanded(
+              child: NotificationListener<ScrollNotification>(
+                onNotification: (ScrollNotification info) {
+                  if (_getPosition(homeKey) <= 0.0 &&
+                      _getPosition(servicesKey) > 0.0) {
+                    data.triggerSelection(0);
+                  } else if (_getPosition(servicesKey) <= 0.0 &&
+                      _getPosition(galleryKey) > 0.0) {
+                    data.triggerSelection(1);
+                  } else if (_getPosition(galleryKey) <= 0.0 &&
+                      _getPosition(teamKey) > 0.0) {
+                    data.triggerSelection(2);
+                  } else if (_getPosition(teamKey) <= 0.0 &&
+                      _getPosition(aboutKey) > 0.0) {
+                    data.triggerSelection(3);
+                  } else if (_getPosition(aboutKey) <= 0.0) {
+                    data.triggerSelection(4);
+                  }
+                  return true;
+                },
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: Column(
+                    children: [
+                      MobileHome(key: homeKey),
+                      MobileServices(key: servicesKey),
+                      MobileGallery(key: galleryKey),
+                      MobileTeam(key: teamKey),
+                    ],
+                  ),
+                ),
               ),
             ),
           )
