@@ -16,7 +16,7 @@ class MobileHome extends StatelessWidget {
       height: MediaQuery.of(context).size.height * .8,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage('assets/images/home.jpg'),
+          image: const AssetImage('assets/images/kanyama.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
@@ -28,7 +28,7 @@ class MobileHome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: const [
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'hello Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             style: kTitleTextStyle,
             textAlign: TextAlign.center,
           ),
