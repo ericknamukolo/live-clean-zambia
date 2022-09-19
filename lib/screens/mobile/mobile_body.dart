@@ -4,7 +4,9 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../constants/text.dart';
+import '../../widgets/custom_button.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
+import '../../widgets/mobile/mobile_home.dart';
 
 class MobileBody extends StatefulWidget {
   const MobileBody({
@@ -84,7 +86,9 @@ class _MobileBodyState extends State<MobileBody> {
                 controller: _scrollController,
                 physics: const NeverScrollableScrollPhysics(),
                 child: Column(
-                  children: [],
+                  children: const [
+                    MobileHome(),
+                  ],
                 ),
               ),
             ),
