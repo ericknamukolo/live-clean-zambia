@@ -18,7 +18,7 @@ class MobileHome extends StatelessWidget {
         'assets/images/home.jpg',
         width: double.infinity,
         fit: BoxFit.cover,
-        color: kPrimaryColor.withOpacity(.3),
+        color: kPrimaryColor.withOpacity(.7),
         colorBlendMode: BlendMode.modulate,
       ),
     );
