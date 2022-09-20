@@ -8,127 +8,174 @@ import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
 class DesktopContact extends StatelessWidget {
+  final bool isMobile;
   const DesktopContact({
     Key? key,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: kGreyBg,
-      padding: const EdgeInsets.symmetric(vertical: 80.0),
+      padding: EdgeInsets.symmetric(vertical: isMobile ? 50 : 80.0),
       child: Column(
         children: [
-          const TextTitle(title: 'Contact Us'),
+          TextTitle(title: 'Contact Us', isMobile: isMobile),
           const SizedBox(height: 20),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.2.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 10.0),
-                          height: 20,
-                          width: 4,
-                          color: kSecondaryColor,
-                        ),
-                        const Text('Contacts', style: kBodyTitleTextStyleGrey),
-                      ],
-                    ),
-                    const SizedBox(height: 10.0),
-                    IconTextButton(
-                      icon: MdiIcons.email,
-                      text: 'ak@livecleanzambia.com',
-                      click: () async {
-                        Uri url = Uri.parse('mailto:ak@livecleanzambia.com');
-                        await launchUrl(url);
-                      },
-                    ),
-                    const SizedBox(height: 10.0),
-                    IconTextButton(
-                      icon: MdiIcons.phone,
-                      text: '+260 969239115',
-                      click: () {},
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 10.0),
-                          height: 20,
-                          width: 4,
-                          color: kSecondaryColor,
-                        ),
-                        const Text('Socials', style: kBodyTitleTextStyleGrey),
-                      ],
-                    ),
-                    const SizedBox(height: 10.0),
-                    Row(
-                      children: [
-                        IconBtn(
-                          click: () async {
-                            Uri url = Uri.parse(
-                                'https://youtube.com/channel/UC0FOT2lyKqYHc1epLkY_LBg');
-                            await launchUrl(url);
-                          },
-                          icon: MdiIcons.youtube,
-                        ),
-                        const SizedBox(width: 14.0),
-                        IconBtn(
-                          click: () async {
-                            Uri url =
-                                Uri.parse('https://twitter.com/LiveCleanZM');
-                            await launchUrl(url);
-                          },
-                          icon: MdiIcons.twitter,
-                        ),
-                        const SizedBox(width: 14.0),
-                        IconBtn(
-                          click: () async {
-                            Uri url = Uri.parse(
-                                'https://linkedin.com/company/live-clean-initiatives/?viewAsMember=true');
-                            await launchUrl(url);
-                          },
-                          icon: MdiIcons.linkedin,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 10.0),
-                          height: 20,
-                          width: 4,
-                          color: kSecondaryColor,
-                        ),
-                        const Text('Visit Us', style: kBodyTitleTextStyleGrey),
-                      ],
-                    ),
-                    const SizedBox(height: 10.0),
-                    const Text(
-                        'Office 101, 1st Floor\nFoxdale Court Office Park\n609 Zambezi Road, Roma\nLusaka, Zambia.',
-                        style: kBodyTextStyleGrey),
-                  ],
-                ),
-              ],
-            ),
+            padding: EdgeInsets.symmetric(horizontal: isMobile ? 15.0 : 10.2.w),
+            child: isMobile
+                ? Column(
+                    children: const [
+                      ContactsPart(),
+                      SizedBox(height: 30),
+                      SocialsPart(),
+                      SizedBox(height: 30),
+                      VisitUsPart(),
+                    ],
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      ContactsPart(),
+                      SocialsPart(),
+                      VisitUsPart(),
+                    ],
+                  ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class VisitUsPart extends StatelessWidget {
+  const VisitUsPart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 10.0),
+              height: 20,
+              width: 4,
+              color: kSecondaryColor,
+            ),
+            const Text('Visit Us', style: kBodyTitleTextStyleGrey),
+          ],
+        ),
+        const SizedBox(height: 10.0),
+        const Text(
+            'Office 101, 1st Floor\nFoxdale Court Office Park\n609 Zambezi Road, Roma\nLusaka, Zambia.',
+            style: kBodyTextStyleGrey),
+      ],
+    );
+  }
+}
+
+class SocialsPart extends StatelessWidget {
+  const SocialsPart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 10.0),
+              height: 20,
+              width: 4,
+              color: kSecondaryColor,
+            ),
+            const Text('Socials', style: kBodyTitleTextStyleGrey),
+          ],
+        ),
+        const SizedBox(height: 10.0),
+        Row(
+          children: [
+            IconBtn(
+              click: () async {
+                Uri url = Uri.parse(
+                    'https://youtube.com/channel/UC0FOT2lyKqYHc1epLkY_LBg');
+                await launchUrl(url);
+              },
+              icon: MdiIcons.youtube,
+            ),
+            const SizedBox(width: 14.0),
+            IconBtn(
+              click: () async {
+                Uri url = Uri.parse('https://twitter.com/LiveCleanZM');
+                await launchUrl(url);
+              },
+              icon: MdiIcons.twitter,
+            ),
+            const SizedBox(width: 14.0),
+            IconBtn(
+              click: () async {
+                Uri url = Uri.parse(
+                    'https://linkedin.com/company/live-clean-initiatives/?viewAsMember=true');
+                await launchUrl(url);
+              },
+              icon: MdiIcons.linkedin,
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ContactsPart extends StatelessWidget {
+  const ContactsPart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: 10.0),
+              height: 20,
+              width: 4,
+              color: kSecondaryColor,
+            ),
+            const Text('Contacts', style: kBodyTitleTextStyleGrey),
+          ],
+        ),
+        const SizedBox(height: 10.0),
+        IconTextButton(
+          icon: MdiIcons.email,
+          text: 'ak@livecleanzambia.com',
+          click: () async {
+            Uri url = Uri.parse('mailto:ak@livecleanzambia.com');
+            await launchUrl(url);
+          },
+        ),
+        const SizedBox(height: 10.0),
+        IconTextButton(
+          icon: MdiIcons.phone,
+          text: '+260 969239115',
+          click: () async {
+            Uri url = Uri.parse('tel:+260969239115');
+            await launchUrl(url);
+          },
+        ),
+      ],
     );
   }
 }

@@ -14,7 +14,7 @@ class MobileAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.only(bottom: 30.0),
+      padding: const EdgeInsets.only(bottom: 10.0),
       child: Column(
         children: [
           const ImageBannerMobile(

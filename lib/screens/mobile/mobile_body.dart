@@ -3,6 +3,8 @@ import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import '../../widgets/desktop/desktop_contact.dart';
+import '../../widgets/desktop/desktop_footer.dart';
 import '../../widgets/mobile/mobile_about.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
 import '../../widgets/mobile/mobile_gallery.dart';
@@ -46,7 +48,7 @@ class _MobileBodyState extends State<MobileBody> {
       backgroundColor: const Color(0xffF3F5FB),
       endDrawer: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10.0),
-        width: MediaQuery.of(context).size.width * .45,
+        width: MediaQuery.of(context).size.width * .6,
         color: Colors.white,
         child: Consumer<SiteData>(
           builder: (context, data, __) => Column(
@@ -162,6 +164,8 @@ class _MobileBodyState extends State<MobileBody> {
                       MobileGallery(key: galleryKey),
                       MobileTeam(key: teamKey),
                       MobileAbout(key: aboutKey),
+                      const DesktopContact(isMobile: true),
+                      const DesktopFooter(),
                     ],
                   ),
                 ),
