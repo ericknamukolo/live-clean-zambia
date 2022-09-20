@@ -5,9 +5,11 @@ import '../../constants/text.dart';
 
 class ImageBannerMobile extends StatelessWidget {
   final String imgUrl;
+  final String title;
   const ImageBannerMobile({
     Key? key,
     required this.imgUrl,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class ImageBannerMobile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                  title,
                   style: kTitleTextStyle.copyWith(fontSize: 22),
                   textAlign: TextAlign.center,
                 ),

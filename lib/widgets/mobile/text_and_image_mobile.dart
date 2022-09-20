@@ -64,7 +64,6 @@ class TextPart extends StatelessWidget {
         Text(
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           style: kBodyTitleTextStyleGrey.copyWith(fontSize: 22.0),
-          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 10.0),
         const Text(

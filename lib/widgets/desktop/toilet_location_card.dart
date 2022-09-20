@@ -7,10 +7,12 @@ import '../../constants/text.dart';
 class ToiletLocationCard extends StatelessWidget {
   final Toilet tl;
   final bool addSpace;
+  final bool isMobile;
   const ToiletLocationCard({
     Key? key,
     required this.tl,
     this.addSpace = false,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,7 @@ class ToiletLocationCard extends StatelessWidget {
       children: [
         Container(
           height: 280,
-          width: 500,
+          width: isMobile ? double.infinity : 500,
           decoration: BoxDecoration(
             color: kPrimaryColor,
             image: DecorationImage(
@@ -61,7 +63,7 @@ class ToiletLocationCard extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: addSpace ? 30.0 : 0.0),
+        SizedBox(height: addSpace ? 35.0 : 0.0),
       ],
     );
   }

@@ -3,6 +3,7 @@ import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import '../../widgets/mobile/mobile_about.dart';
 import '../../widgets/mobile/mobile_appbar_item.dart';
 import '../../widgets/mobile/mobile_gallery.dart';
 import '../../widgets/mobile/mobile_home.dart';
@@ -160,6 +161,7 @@ class _MobileBodyState extends State<MobileBody> {
                       MobileServices(key: servicesKey),
                       MobileGallery(key: galleryKey),
                       MobileTeam(key: teamKey),
+                      MobileAbout(key: aboutKey),
                     ],
                   ),
                 ),

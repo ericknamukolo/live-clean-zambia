@@ -4,8 +4,10 @@ import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
 class TeamCard extends StatelessWidget {
+  final bool isMobile;
   const TeamCard({
     Key? key,
+    this.isMobile = false,
   }) : super(key: key);
 
   @override
@@ -15,6 +17,7 @@ class TeamCard extends StatelessWidget {
       height: screen ? 43.h : 300,
       width: screen ? 17.5.w : 240,
       padding: const EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: isMobile ? 30.0 : 0.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
