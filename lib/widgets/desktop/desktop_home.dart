@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/text.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../custom_button.dart';
+import 'desktop_contact.dart';
 
 class DesktopHome extends StatelessWidget {
   const DesktopHome({
@@ -40,7 +43,39 @@ class DesktopHome extends StatelessWidget {
             style: kBodyTextStyleWhite,
             textAlign: TextAlign.center,
           ),
-          const CustomButton(text: 'Contact Us'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconBtn(
+                click: () async {
+                  Uri url = Uri.parse(
+                      'https://youtube.com/channel/UC0FOT2lyKqYHc1epLkY_LBg');
+                  await launchUrl(url);
+                },
+                icon: MdiIcons.youtube,
+                isWhite: true,
+              ),
+              const SizedBox(width: 14.0),
+              IconBtn(
+                click: () async {
+                  Uri url = Uri.parse('https://twitter.com/LiveCleanZM');
+                  await launchUrl(url);
+                },
+                icon: MdiIcons.twitter,
+                isWhite: true,
+              ),
+              const SizedBox(width: 14.0),
+              IconBtn(
+                click: () async {
+                  Uri url = Uri.parse(
+                      'https://linkedin.com/company/live-clean-initiatives/?viewAsMember=true');
+                  await launchUrl(url);
+                },
+                icon: MdiIcons.linkedin,
+                isWhite: true,
+              ),
+            ],
+          ),
         ],
       ),
     );

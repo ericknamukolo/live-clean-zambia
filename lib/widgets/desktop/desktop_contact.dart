@@ -183,10 +183,12 @@ class ContactsPart extends StatelessWidget {
 class IconBtn extends StatefulWidget {
   final IconData icon;
   final Function() click;
+  final bool isWhite;
   const IconBtn({
     Key? key,
     required this.icon,
     required this.click,
+    this.isWhite = false,
   }) : super(key: key);
 
   @override
@@ -209,7 +211,11 @@ class _IconBtnState extends State<IconBtn> {
         }),
         child: Icon(
           widget.icon,
-          color: _isHovered ? kPrimaryColor : kBodyTextStyleGrey.color,
+          color: _isHovered
+              ? kPrimaryColor
+              : widget.isWhite
+                  ? Colors.white
+                  : kBodyTextStyleGrey.color,
           size: 30.0,
         ),
       ),

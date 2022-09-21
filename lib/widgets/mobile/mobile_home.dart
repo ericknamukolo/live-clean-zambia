@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/text.dart';
 import '../custom_button.dart';
+import '../desktop/desktop_contact.dart';
 
 class MobileHome extends StatelessWidget {
   const MobileHome({
@@ -29,18 +32,50 @@ class MobileHome extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                   style: kTitleTextStyle,
                   textAlign: TextAlign.center,
                 ),
-                Text(
+                const Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                   style: kBodyTextStyleWhite,
                   textAlign: TextAlign.center,
                 ),
-                CustomButton(text: 'Contact Us', isMobile: true),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconBtn(
+                      click: () async {
+                        Uri url = Uri.parse(
+                            'https://youtube.com/channel/UC0FOT2lyKqYHc1epLkY_LBg');
+                        await launchUrl(url);
+                      },
+                      icon: MdiIcons.youtube,
+                      isWhite: true,
+                    ),
+                    const SizedBox(width: 14.0),
+                    IconBtn(
+                      click: () async {
+                        Uri url = Uri.parse('https://twitter.com/LiveCleanZM');
+                        await launchUrl(url);
+                      },
+                      icon: MdiIcons.twitter,
+                      isWhite: true,
+                    ),
+                    const SizedBox(width: 14.0),
+                    IconBtn(
+                      click: () async {
+                        Uri url = Uri.parse(
+                            'https://linkedin.com/company/live-clean-initiatives/?viewAsMember=true');
+                        await launchUrl(url);
+                      },
+                      icon: MdiIcons.linkedin,
+                      isWhite: true,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
