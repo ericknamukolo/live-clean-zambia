@@ -4,6 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/text.dart';
+import '../../providers/site_data.dart';
 import '../custom_button.dart';
 import '../desktop/desktop_contact.dart';
 
@@ -33,13 +34,13 @@ class MobileHome extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                Text(
+                  SiteData.homeHeader,
                   style: kTitleTextStyle,
                   textAlign: TextAlign.center,
                 ),
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                Text(
+                  SiteData.homeDes,
                   style: kBodyTextStyleWhite,
                   textAlign: TextAlign.center,
                 ),

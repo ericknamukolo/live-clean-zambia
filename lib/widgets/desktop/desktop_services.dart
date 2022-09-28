@@ -19,8 +19,7 @@ class DesktopServices extends StatelessWidget {
       children: [
         const BlueBanner(
           title: 'What We Do',
-          des:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          des: SiteData.whatWeDo,
         ),
         Container(
           padding: EdgeInsets.symmetric(vertical: 11.52.h, horizontal: 10.2.w),

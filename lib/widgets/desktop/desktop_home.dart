@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/text.dart';
+import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../custom_button.dart';
 import 'desktop_contact.dart';
 
 class DesktopHome extends StatelessWidget {
@@ -15,7 +14,7 @@ class DesktopHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 2.88.h),
+      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 2.88.h),
       width: double.infinity,
       height: 75.h,
       decoration: BoxDecoration(
@@ -32,14 +31,14 @@ class DesktopHome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            SiteData.homeHeader,
             style: kTitleTextStyle.copyWith(
               fontSize: 8.sp,
             ),
             textAlign: TextAlign.center,
           ),
-          const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          Text(
+            SiteData.homeDes,
             style: kBodyTextStyleWhite,
             textAlign: TextAlign.center,
           ),

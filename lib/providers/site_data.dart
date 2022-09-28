@@ -3,6 +3,13 @@ import 'package:live_clean_zambia/models/service.dart';
 import 'package:live_clean_zambia/models/toilet.dart';
 
 class SiteData with ChangeNotifier {
+  static String homeHeader =
+      'Sustainable Sanitation Solutions for Africa\'s peri-urban Population';
+  static String homeDes =
+      'Closing the sanitation gap in Africa with simple, sustainable and innovative solutions';
+
+  static const whatWeDo =
+      'We construct and safely manage sustainable and market enabling water and sanitation facilities in peri-urban commercial hubs.';
   final List<double> pages = [
     0.0,
     0.0,
@@ -25,34 +32,34 @@ class SiteData with ChangeNotifier {
   static List<Service> services = [
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'Facilities are professionally cleaned every 7 minutes with toilet paper supply and constant running water.',
         iconUrl: 'assets/svg/toilet.svg',
-        title: 'Clean Toilets'),
+        title: 'Clean Toilets & Showers'),
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'Access to potable water for various use in the markets such as, to clean fruits and vegetables.',
         iconUrl: 'assets/svg/bathe.svg',
-        title: 'Shower Facilities'),
+        title: 'Potable Water'),
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'Sanitation related hygiene products like toilet cleaner and sanitary pads are the main products.',
         iconUrl: 'assets/svg/shop.svg',
         title: 'Convenience Shop'),
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'Reduces food waste in the markets by enlongating the life of perishable products.',
         iconUrl: 'assets/svg/phone.svg',
-        title: 'Phone Charging'),
+        title: 'Cold Storage'),
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'Aside from the sinks in the toilets, we have designated stations where people who just need to clean their hands can as the move in the market.',
         iconUrl: 'assets/svg/basin.svg',
-        title: 'HandWash Basin'),
+        title: 'Hand Washing and Sanitising Stations'),
     Service(
         des:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ',
+            'With the markets as a hub for transactions, providing mobile money services encourages the ease of transactions.',
         iconUrl: 'assets/svg/san.svg',
-        title: 'Soap & Sanitizers'),
+        title: 'Money Services'),
   ];
 
   static List<String> gallery = [

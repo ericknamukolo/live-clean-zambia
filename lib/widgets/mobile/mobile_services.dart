@@ -14,8 +14,7 @@ class MobileServices extends StatelessWidget {
       children: [
         const BlueBanner(
           title: 'What We Do',
-          des:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          des: SiteData.whatWeDo,
           isMobile: true,
         ),
         const SizedBox(height: 50),
