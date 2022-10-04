@@ -26,7 +26,7 @@ class DesktopFooter extends StatelessWidget {
           const SizedBox(height: 10.0),
           TextButton(
             onPressed: () async {
-              Uri url = Uri.parse('https://ericknamukolo.github.io/');
+              Uri url = Uri.parse('https://ericknamukolo.com');
               await launchUrl(url);
             },
             child: Text(
