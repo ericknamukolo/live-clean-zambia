@@ -7,8 +7,8 @@ import 'package:sizer/sizer.dart';
 import '../../providers/site_data.dart';
 import 'toilet_location_card.dart';
 
-class DesktopAbout extends StatelessWidget {
-  const DesktopAbout({
+class DesktopProjects extends StatelessWidget {
+  const DesktopProjects({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +18,7 @@ class DesktopAbout extends StatelessWidget {
     return Column(
       children: [
         const ImageBanner(
-          title: 'About Us',
+          title: 'Projects',
           des:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
           img:

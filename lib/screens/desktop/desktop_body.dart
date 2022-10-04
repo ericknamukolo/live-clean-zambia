@@ -5,7 +5,7 @@ import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
-import '../../widgets/desktop/desktop_about.dart';
+import '../../widgets/desktop/desktop_projects.dart';
 import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_contact.dart';
 import '../../widgets/desktop/desktop_footer.dart';
@@ -87,8 +87,8 @@ class _DesktopBodyState extends State<DesktopBody> {
                         DesktopHome(key: homeKey),
                         DesktopServices(key: servicesKey),
                         DesktopGallery(key: galleryKey),
+                        DesktopProjects(key: aboutKey),
                         DesktopTeam(key: teamKey),
-                        DesktopAbout(key: aboutKey),
                         const DesktopContact(),
                         const DesktopFooter(),
                       ],

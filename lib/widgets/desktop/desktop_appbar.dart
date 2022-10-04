@@ -45,11 +45,16 @@ class DesktopAppBar extends StatelessWidget {
             AppBarItem(
                 label: 'What We Do', click: services, indi: data.pages[1]),
             SizedBox(width: 2.19.w),
+            AppBarItem(
+                label: 'Research & Development',
+                click: services,
+                indi: data.pages[1]),
+            SizedBox(width: 2.19.w),
             AppBarItem(label: 'Gallery', click: gallery, indi: data.pages[2]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'Team', click: team, indi: data.pages[3]),
+            AppBarItem(label: 'Projects', click: team, indi: data.pages[3]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'About', click: about, indi: data.pages[4]),
+            AppBarItem(label: 'Team', click: about, indi: data.pages[4]),
           ],
         ),
       ),
