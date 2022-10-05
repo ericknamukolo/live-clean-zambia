@@ -13,6 +13,7 @@ import '../../widgets/desktop/desktop_gallery.dart';
 import '../../widgets/desktop/desktop_home.dart';
 import '../../widgets/desktop/desktop_services.dart';
 import '../../widgets/desktop/desktop_team.dart';
+import '../../widgets/desktop/r_and_d_desktop.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
@@ -26,8 +27,8 @@ class _DesktopBodyState extends State<DesktopBody> {
   final homeKey = GlobalKey();
   final servicesKey = GlobalKey();
   final galleryKey = GlobalKey();
+  final projectsKey = GlobalKey();
   final teamKey = GlobalKey();
-  final aboutKey = GlobalKey();
 
   void _scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(key.currentContext!,
@@ -49,10 +50,10 @@ class _DesktopBodyState extends State<DesktopBody> {
       body: Column(
         children: [
           DesktopAppBar(
-            about: () => _scrollToSection(aboutKey),
+            about: () => _scrollToSection(teamKey),
             home: () => _scrollToSection(homeKey),
             services: () => _scrollToSection(servicesKey),
-            team: () => _scrollToSection(teamKey),
+            team: () => _scrollToSection(projectsKey),
             gallery: () => _scrollToSection(galleryKey),
           ),
           Consumer<SiteData>(
@@ -66,12 +67,12 @@ class _DesktopBodyState extends State<DesktopBody> {
                       _getPosition(galleryKey) > 0.0) {
                     data.triggerSelection(1);
                   } else if (_getPosition(galleryKey) <= 0.0 &&
-                      _getPosition(teamKey) > 0.0) {
+                      _getPosition(projectsKey) > 0.0) {
                     data.triggerSelection(2);
-                  } else if (_getPosition(teamKey) <= 0.0 &&
-                      _getPosition(aboutKey) > 0.0) {
+                  } else if (_getPosition(projectsKey) <= 0.0 &&
+                      _getPosition(teamKey) > 0.0) {
                     data.triggerSelection(3);
-                  } else if (_getPosition(aboutKey) <= 0.0) {
+                  } else if (_getPosition(teamKey) <= 0.0) {
                     data.triggerSelection(4);
                   }
 
@@ -86,8 +87,9 @@ class _DesktopBodyState extends State<DesktopBody> {
                       children: [
                         DesktopHome(key: homeKey),
                         DesktopServices(key: servicesKey),
+                        RAndDDesktop(),
                         DesktopGallery(key: galleryKey),
-                        DesktopProjects(key: aboutKey),
+                        DesktopProjects(key: projectsKey),
                         DesktopTeam(key: teamKey),
                         const DesktopContact(),
                         const DesktopFooter(),

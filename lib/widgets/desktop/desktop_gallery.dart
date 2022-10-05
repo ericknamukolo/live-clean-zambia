@@ -15,7 +15,7 @@ class DesktopGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 80.0),
+      padding: const EdgeInsets.only(bottom: 80.0),
       color: Colors.white,
       width: double.infinity,
       child: Column(
@@ -42,15 +42,6 @@ class DesktopGallery extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 80.0),
-          const ImageBanner(
-            des:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            img: 'assets/images/wash.jpg',
-            title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          ),
-          const SizedBox(height: 100.0),
-          const TextAndImage(hasbtn: false),
         ],
       ),
     );
