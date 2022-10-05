@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/foundation.dart';
 import 'package:live_clean_zambia/models/service.dart';
 import 'package:live_clean_zambia/models/toilet.dart';
@@ -86,4 +88,17 @@ class SiteData with ChangeNotifier {
     double h = (height * 10) / 69.7;
     print('Height = ${h}h');
   }
+
+  static List<String> partners = [
+    'Kukula Seed',
+    'Innovations Against Poverty',
+    'SNV (Netherlands Development Organisation)',
+    'Menstrual Health Day',
+    'Toilet Board Coalition',
+    'AGS (Accelerated Growth for SME\'s)',
+    'Sustainable Sanitation Alliance',
+    'Aqua for All',
+    'Change: Water Labs',
+    'Unilever Zambia',
+  ];
 }

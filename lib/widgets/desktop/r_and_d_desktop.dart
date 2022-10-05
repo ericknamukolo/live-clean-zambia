@@ -10,7 +10,6 @@ class RAndDDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool screen = MediaQuery.of(context).size.width > 1146;
     return Container(
       padding: const EdgeInsets.only(bottom: 80.0),
       color: Colors.white,

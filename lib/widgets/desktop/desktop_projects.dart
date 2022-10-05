@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/constants/colors.dart';
+import 'package:live_clean_zambia/constants/text.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
@@ -32,6 +34,42 @@ class DesktopProjects extends StatelessWidget {
               const TextAndImage(),
               const SizedBox(height: 100.0),
               const TextAndImage(isReversed: true),
+              const SizedBox(height: 60.0),
+              const TextTitle(title: 'Partners'),
+              const SizedBox(height: 40.0),
+              GridView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 140.0),
+                shrinkWrap: true,
+                itemCount: SiteData.partners.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  childAspectRatio: 1,
+                  crossAxisSpacing: 20.0,
+                  mainAxisSpacing: 30.0,
+                ),
+                itemBuilder: (context, index) => Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.all(30.0),
+                        decoration: const BoxDecoration(
+                          color: kSecondaryColor,
+                          shape: BoxShape.circle,
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text('Logo', style: kBodyTextStyleWhite),
+                      ),
+                    ),
+                    Text(
+                      SiteData.partners[index],
+                      textAlign: TextAlign.center,
+                      style: kBodyTitleTextStyleGrey.copyWith(
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(height: 60.0),
               const TextTitle(title: 'Our Toilets'),
               const SizedBox(height: 40.0),
