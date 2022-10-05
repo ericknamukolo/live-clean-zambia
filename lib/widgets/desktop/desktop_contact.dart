@@ -18,7 +18,8 @@ class DesktopContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: kGreyBg,
-      padding: EdgeInsets.symmetric(vertical: isMobile ? 50 : 80.0),
+      padding: EdgeInsets.symmetric(vertical: isMobile ? 50 : 0.0),
+      margin: const EdgeInsets.only(bottom: 80.0),
       child: Column(
         children: [
           TextTitle(title: 'Contact Us', isMobile: isMobile),
