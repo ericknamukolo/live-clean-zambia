@@ -26,7 +26,7 @@ class _DesktopBodyState extends State<DesktopBody> {
   final _scrollController = ScrollController();
   final homeKey = GlobalKey();
   final servicesKey = GlobalKey();
-  final r_dKey = GlobalKey();
+  final rDkey = GlobalKey();
   final galleryKey = GlobalKey();
   final projectsKey = GlobalKey();
   final teamKey = GlobalKey();
@@ -56,7 +56,7 @@ class _DesktopBodyState extends State<DesktopBody> {
             services: () => _scrollToSection(servicesKey),
             projects: () => _scrollToSection(projectsKey),
             gallery: () => _scrollToSection(galleryKey),
-            research: () => _scrollToSection(r_dKey),
+            research: () => _scrollToSection(rDkey),
           ),
           Consumer<SiteData>(
             builder: (context, data, __) => Expanded(
@@ -66,16 +66,19 @@ class _DesktopBodyState extends State<DesktopBody> {
                       _getPosition(servicesKey) > 0.0) {
                     data.triggerSelection(0);
                   } else if (_getPosition(servicesKey) <= 0.0 &&
-                      _getPosition(galleryKey) > 0.0) {
+                      _getPosition(rDkey) > 0.0) {
                     data.triggerSelection(1);
+                  } else if (_getPosition(rDkey) <= 0.0 &&
+                      _getPosition(galleryKey) > 0.0) {
+                    data.triggerSelection(2);
                   } else if (_getPosition(galleryKey) <= 0.0 &&
                       _getPosition(projectsKey) > 0.0) {
-                    data.triggerSelection(2);
+                    data.triggerSelection(3);
                   } else if (_getPosition(projectsKey) <= 0.0 &&
                       _getPosition(teamKey) > 0.0) {
-                    data.triggerSelection(3);
-                  } else if (_getPosition(teamKey) <= 0.0) {
                     data.triggerSelection(4);
+                  } else if (_getPosition(teamKey) <= 0.0) {
+                    data.triggerSelection(5);
                   }
 
                   return true;
@@ -89,7 +92,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                       children: [
                         DesktopHome(key: homeKey),
                         DesktopServices(key: servicesKey),
-                        RAndDDesktop(key: r_dKey),
+                        RAndDDesktop(key: rDkey),
                         DesktopGallery(key: galleryKey),
                         DesktopProjects(key: projectsKey),
                         DesktopTeam(key: teamKey),

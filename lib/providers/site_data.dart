@@ -18,6 +18,7 @@ class SiteData with ChangeNotifier {
     0.0,
     0.0,
     0.0,
+    0.0,
   ];
 
   void triggerSelection(int index) {
@@ -26,6 +27,7 @@ class SiteData with ChangeNotifier {
     pages[2] = 0.0;
     pages[3] = 0.0;
     pages[4] = 0.0;
+    pages[5] = 0.0;
 
     pages[index] = 45.0;
     notifyListeners();
