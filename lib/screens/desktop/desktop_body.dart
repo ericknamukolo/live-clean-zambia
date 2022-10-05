@@ -5,7 +5,7 @@ import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
-import '../../widgets/desktop/desktop_about.dart';
+import '../../widgets/desktop/desktop_projects.dart';
 import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_contact.dart';
 import '../../widgets/desktop/desktop_footer.dart';
@@ -13,6 +13,7 @@ import '../../widgets/desktop/desktop_gallery.dart';
 import '../../widgets/desktop/desktop_home.dart';
 import '../../widgets/desktop/desktop_services.dart';
 import '../../widgets/desktop/desktop_team.dart';
+import '../../widgets/desktop/r_and_d_desktop.dart';
 
 class DesktopBody extends StatefulWidget {
   const DesktopBody({super.key});
@@ -25,9 +26,10 @@ class _DesktopBodyState extends State<DesktopBody> {
   final _scrollController = ScrollController();
   final homeKey = GlobalKey();
   final servicesKey = GlobalKey();
+  final rDkey = GlobalKey();
   final galleryKey = GlobalKey();
+  final projectsKey = GlobalKey();
   final teamKey = GlobalKey();
-  final aboutKey = GlobalKey();
 
   void _scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(key.currentContext!,
@@ -49,11 +51,12 @@ class _DesktopBodyState extends State<DesktopBody> {
       body: Column(
         children: [
           DesktopAppBar(
-            about: () => _scrollToSection(aboutKey),
+            team: () => _scrollToSection(teamKey),
             home: () => _scrollToSection(homeKey),
             services: () => _scrollToSection(servicesKey),
-            team: () => _scrollToSection(teamKey),
+            projects: () => _scrollToSection(projectsKey),
             gallery: () => _scrollToSection(galleryKey),
+            research: () => _scrollToSection(rDkey),
           ),
           Consumer<SiteData>(
             builder: (context, data, __) => Expanded(
@@ -63,16 +66,19 @@ class _DesktopBodyState extends State<DesktopBody> {
                       _getPosition(servicesKey) > 0.0) {
                     data.triggerSelection(0);
                   } else if (_getPosition(servicesKey) <= 0.0 &&
-                      _getPosition(galleryKey) > 0.0) {
+                      _getPosition(rDkey) > 0.0) {
                     data.triggerSelection(1);
-                  } else if (_getPosition(galleryKey) <= 0.0 &&
-                      _getPosition(teamKey) > 0.0) {
+                  } else if (_getPosition(rDkey) <= 0.0 &&
+                      _getPosition(galleryKey) > 0.0) {
                     data.triggerSelection(2);
-                  } else if (_getPosition(teamKey) <= 0.0 &&
-                      _getPosition(aboutKey) > 0.0) {
+                  } else if (_getPosition(galleryKey) <= 0.0 &&
+                      _getPosition(projectsKey) > 0.0) {
                     data.triggerSelection(3);
-                  } else if (_getPosition(aboutKey) <= 0.0) {
+                  } else if (_getPosition(projectsKey) <= 0.0 &&
+                      _getPosition(teamKey) > 0.0) {
                     data.triggerSelection(4);
+                  } else if (_getPosition(teamKey) <= 0.0) {
+                    data.triggerSelection(5);
                   }
 
                   return true;
@@ -86,9 +92,10 @@ class _DesktopBodyState extends State<DesktopBody> {
                       children: [
                         DesktopHome(key: homeKey),
                         DesktopServices(key: servicesKey),
+                        RAndDDesktop(key: rDkey),
                         DesktopGallery(key: galleryKey),
+                        DesktopProjects(key: projectsKey),
                         DesktopTeam(key: teamKey),
-                        DesktopAbout(key: aboutKey),
                         const DesktopContact(),
                         const DesktopFooter(),
                       ],

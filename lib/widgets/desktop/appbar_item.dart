@@ -36,14 +36,19 @@ class _AppBarItemState extends State<AppBarItem> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              widget.label,
-              style: kBodyTitleTextStyleGrey.copyWith(
-                color: _isHovered
-                    ? kSecondaryColor
-                    : widget.indi == 0.0
-                        ? kBodyTextStyleGrey.color
-                        : kSecondaryColor,
+            Container(
+              width: widget.label.length > 15 ? 150 : null,
+              child: Text(
+                widget.label,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                style: kBodyTitleTextStyleGrey.copyWith(
+                  color: _isHovered
+                      ? kSecondaryColor
+                      : widget.indi == 0.0
+                          ? kBodyTextStyleGrey.color
+                          : kSecondaryColor,
+                ),
               ),
             ),
             AnimatedContainer(

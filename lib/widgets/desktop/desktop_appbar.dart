@@ -8,15 +8,17 @@ class DesktopAppBar extends StatelessWidget {
   final Function() home;
   final Function() services;
   final Function() gallery;
+  final Function() projects;
+  final Function() research;
   final Function() team;
-  final Function() about;
   const DesktopAppBar({
     Key? key,
-    required this.about,
+    required this.team,
     required this.services,
     required this.gallery,
-    required this.team,
+    required this.projects,
     required this.home,
+    required this.research,
   }) : super(key: key);
 
   @override
@@ -45,11 +47,16 @@ class DesktopAppBar extends StatelessWidget {
             AppBarItem(
                 label: 'What We Do', click: services, indi: data.pages[1]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'Gallery', click: gallery, indi: data.pages[2]),
+            AppBarItem(
+                label: 'Research & Development',
+                click: research,
+                indi: data.pages[2]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'Team', click: team, indi: data.pages[3]),
+            AppBarItem(label: 'Gallery', click: gallery, indi: data.pages[3]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'About', click: about, indi: data.pages[4]),
+            AppBarItem(label: 'Projects', click: projects, indi: data.pages[4]),
+            SizedBox(width: 2.19.w),
+            AppBarItem(label: 'Team', click: team, indi: data.pages[5]),
           ],
         ),
       ),
