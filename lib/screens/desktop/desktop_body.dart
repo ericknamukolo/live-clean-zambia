@@ -26,6 +26,7 @@ class _DesktopBodyState extends State<DesktopBody> {
   final _scrollController = ScrollController();
   final homeKey = GlobalKey();
   final servicesKey = GlobalKey();
+  final r_dKey = GlobalKey();
   final galleryKey = GlobalKey();
   final projectsKey = GlobalKey();
   final teamKey = GlobalKey();
@@ -50,11 +51,12 @@ class _DesktopBodyState extends State<DesktopBody> {
       body: Column(
         children: [
           DesktopAppBar(
-            about: () => _scrollToSection(teamKey),
+            team: () => _scrollToSection(teamKey),
             home: () => _scrollToSection(homeKey),
             services: () => _scrollToSection(servicesKey),
-            team: () => _scrollToSection(projectsKey),
+            projects: () => _scrollToSection(projectsKey),
             gallery: () => _scrollToSection(galleryKey),
+            research: () => _scrollToSection(r_dKey),
           ),
           Consumer<SiteData>(
             builder: (context, data, __) => Expanded(
@@ -87,7 +89,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                       children: [
                         DesktopHome(key: homeKey),
                         DesktopServices(key: servicesKey),
-                        RAndDDesktop(),
+                        RAndDDesktop(key: r_dKey),
                         DesktopGallery(key: galleryKey),
                         DesktopProjects(key: projectsKey),
                         DesktopTeam(key: teamKey),
