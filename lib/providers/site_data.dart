@@ -43,7 +43,7 @@ class SiteData with ChangeNotifier {
     Service(
         des:
             'Access to potable water for various use in the markets such as, to clean fruits and vegetables.',
-        iconUrl: 'assets/svg/bathe.svg',
+        iconUrl: 'assets/svg/tap.svg',
         title: 'Potable Water'),
     Service(
         des:
@@ -53,7 +53,7 @@ class SiteData with ChangeNotifier {
     Service(
         des:
             'Reduces food waste in the markets by enlongating the life of perishable products.',
-        iconUrl: 'assets/svg/phone.svg',
+        iconUrl: 'assets/svg/fridge.svg',
         title: 'Cold Storage'),
     Service(
         des:
@@ -63,7 +63,7 @@ class SiteData with ChangeNotifier {
     Service(
         des:
             'With the markets as a hub for transactions, providing mobile money services encourages the ease of transactions.',
-        iconUrl: 'assets/svg/san.svg',
+        iconUrl: 'assets/svg/money.svg',
         title: 'Money Services'),
   ];
 
