@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/foundation.dart';
+import 'package:live_clean_zambia/models/partner.dart';
 import 'package:live_clean_zambia/models/service.dart';
 import 'package:live_clean_zambia/models/toilet.dart';
 
@@ -91,16 +92,47 @@ class SiteData with ChangeNotifier {
     print('Height = ${h}h');
   }
 
-  static List<String> partners = [
-    'Kukula Seed',
-    'Innovations Against Poverty',
-    'SNV (Netherlands Development Organisation)',
-    'Menstrual Health Day',
-    'Toilet Board Coalition',
-    'AGS (Accelerated Growth for SME\'s)',
-    'Sustainable Sanitation Alliance',
-    'Aqua for All',
-    'Change: Water Labs',
-    'Unilever Zambia',
+  static List<Partner> partners = [
+    Partner(
+        name: 'Kukula Seed',
+        img: 'assets/images/ks.png',
+        link: 'https://kukulacapital.com/category/live-clean/'),
+    Partner(
+        name: 'Innovations Against Poverty',
+        img: 'assets/images/iap.png',
+        link:
+            'https://m.facebook.com/watch/?v=639933253085590&paipv=0&eav=AfYnOm_D2pkGdJkDcAIwCsqluwe2FkH9eBG4_MahS83ERX42X4lagV-Tf1nQmPNba18&_rdr'),
+    Partner(
+        name: 'SNV (Netherlands Development Organisation)',
+        img: 'assets/images/snv.png',
+        link: 'https://snv.org/country/zambia'),
+    Partner(
+        name: 'Menstrual Health Day',
+        img: 'assets/images/mhd.png',
+        link: 'https://menstrualhygieneday.org/get-involved/partnership/'),
+    Partner(
+        name: 'Toilet Board Coalition',
+        img: 'assets/images/tbc.jpg',
+        link: 'https://www.toiletboard.org/'),
+    Partner(
+        name: 'AGS (Accelerated Growth for SME\'s)',
+        img: 'assets/images/ags.png',
+        link: 'https://agsprogramme.org/'),
+    Partner(
+        name: 'Sustainable Sanitation Alliance',
+        img: 'assets/images/ssa.png',
+        link: 'https://www.susana.org/en/'),
+    Partner(
+        name: 'Aqua for All',
+        img: 'assets/images/afa.png',
+        link: 'https://aquaforall.org/project/live-clean-initiative-zambia/'),
+    Partner(
+        name: 'Change: Water Labs',
+        img: 'assets/images/cwl.png',
+        link: 'https://www.change-water.com/'),
+    Partner(
+        name: 'Unilever Zambia',
+        img: 'assets/images/uz.png',
+        link: 'https://www.facebook.com/UnileverZambia/'),
   ];
 }
