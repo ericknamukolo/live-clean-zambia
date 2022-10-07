@@ -5,6 +5,7 @@ import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../providers/site_data.dart';
 import 'toilet_location_card.dart';
@@ -47,27 +48,35 @@ class DesktopProjects extends StatelessWidget {
                   crossAxisSpacing: 20.0,
                   mainAxisSpacing: 30.0,
                 ),
-                itemBuilder: (context, index) => Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.all(30.0),
-                        decoration: const BoxDecoration(
-                          color: kSecondaryColor,
-                          shape: BoxShape.circle,
+                itemBuilder: (context, index) => MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () async {
+                      Uri url = Uri.parse(SiteData.partners[index].link);
+                      await launchUrl(url);
+                    },
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(30.0),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(SiteData.partners[index].img),
+                              ),
+                            ),
+                          ),
                         ),
-                        alignment: Alignment.center,
-                        child: const Text('Logo', style: kBodyTextStyleWhite),
-                      ),
+                        Text(
+                          SiteData.partners[index].name,
+                          textAlign: TextAlign.center,
+                          style: kBodyTitleTextStyleGrey.copyWith(
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      SiteData.partners[index],
-                      textAlign: TextAlign.center,
-                      style: kBodyTitleTextStyleGrey.copyWith(
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               const SizedBox(height: 60.0),
