@@ -26,7 +26,7 @@ class LiveCleanZambia extends StatelessWidget {
         builder: (context, orientation, deviceType) => MaterialApp(
           debugShowCheckedModeBanner: false,
           //   scrollBehavior: MyCustomScrollBehavior(),
-          title: 'LiveClean Zambia',
+          title: 'Live Clean',
           theme: ThemeData(
             fontFamily: 'Montserrat',
           ),
