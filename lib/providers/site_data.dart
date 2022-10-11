@@ -67,6 +67,27 @@ class SiteData with ChangeNotifier {
         title: 'Money Services'),
   ];
 
+  static List<Partner> team = [
+    Partner(
+      name: 'Abigail Chishala',
+      link: 'https://www.linkedin.com/in/abigail-chishala-2429ba83/',
+      pos: 'Chief Executive Officer',
+      img: 'assets/images/abi.jpg',
+    ),
+    Partner(
+      name: 'Nazir Pandor',
+      link: 'https://www.linkedin.com/in/nazir-pandor-12375890/',
+      pos: 'Strategy Management Consultant',
+      img: 'assets/images/nazi.jpg',
+    ),
+    Partner(
+      name: 'Cuthbert Moyo',
+      link: 'https://www.linkedin.com/in/cuthbert-moyo-87bb90247/',
+      pos: 'Financial Management Consultant',
+      img: 'assets/images/moyo.jpg',
+    ),
+  ];
+
   static List<String> gallery = [
     'assets/images/gallery1.jpg',
     'assets/images/gallery2.jpg',

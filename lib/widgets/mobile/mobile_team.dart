@@ -15,13 +15,13 @@ class MobileTeam extends StatelessWidget {
         const BlueBanner(
             title: 'Meet Our Team',
             des:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'We are a young and vibrant team, sensitive to gender and disability equity.',
             isMobile: true),
         const SizedBox(height: 30),
         Column(
-          children: SiteData.services
+          children: SiteData.team
               .map(
-                (team) => const TeamCard(isMobile: true),
+                (team) => TeamCard(isMobile: true, team: team),
               )
               .toList(),
         ),

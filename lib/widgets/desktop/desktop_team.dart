@@ -18,7 +18,7 @@ class DesktopTeam extends StatelessWidget {
       children: [
         const BlueBanner(
             des:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                'We are a young and vibrant team, sensitive to gender and disability equity.',
             title: 'Meet Our Team'),
         Container(
           padding: EdgeInsets.symmetric(vertical: 11.52.h, horizontal: 10.2.w),
@@ -29,22 +29,10 @@ class DesktopTeam extends StatelessWidget {
                 mainAxisAlignment: screen
                     ? MainAxisAlignment.spaceBetween
                     : MainAxisAlignment.spaceAround,
-                children: SiteData.services
+                children: SiteData.team
                     .getRange(0, screen ? 3 : 2)
                     .map(
-                      (service) => const TeamCard(),
-                    )
-                    .toList(),
-              ),
-              SizedBox(height: 11.52.h),
-              Row(
-                mainAxisAlignment: screen
-                    ? MainAxisAlignment.spaceBetween
-                    : MainAxisAlignment.spaceAround,
-                children: SiteData.services
-                    .getRange(screen ? 3 : 2, screen ? 6 : 4)
-                    .map(
-                      (service) => const TeamCard(),
+                      (team) => TeamCard(team: team),
                     )
                     .toList(),
               ),
@@ -52,15 +40,12 @@ class DesktopTeam extends StatelessWidget {
               Visibility(
                 visible: !screen,
                 child: Row(
-                  mainAxisAlignment: screen
-                      ? MainAxisAlignment.spaceBetween
-                      : MainAxisAlignment.spaceAround,
-                  children: SiteData.services
-                      .getRange(4, 6)
-                      .map(
-                        (service) => const TeamCard(),
-                      )
-                      .toList(),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TeamCard(
+                      team: SiteData.team[2],
+                    )
+                  ],
                 ),
               ),
             ],
