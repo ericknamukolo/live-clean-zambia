@@ -20,7 +20,7 @@ class DesktopGallery extends StatelessWidget {
       width: double.infinity,
       child: Column(
         children: [
-          const TextTitle(title: 'Gallery'),
+          const TextTitle(title: 'Gallery',des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
           const SizedBox(height: 40.0),
           GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 140.0),

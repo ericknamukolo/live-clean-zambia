@@ -27,7 +27,11 @@ class MobileAbout extends StatelessWidget {
           const SizedBox(height: 30.0),
           const TextAndImageMobile(),
           const SizedBox(height: 20.0),
-          const TextTitle(title: 'Our Toilets', isMobile: true),
+          const TextTitle(
+              title: 'Our Toilets',
+              isMobile: true,
+              des:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
           const SizedBox(height: 20.0),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
