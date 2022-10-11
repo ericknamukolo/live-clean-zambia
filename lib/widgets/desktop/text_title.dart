@@ -7,10 +7,12 @@ import '../../constants/text.dart';
 
 class TextTitle extends StatelessWidget {
   final String title;
+  final String des;
   final bool isMobile;
   const TextTitle({
     Key? key,
     required this.title,
+    required this.des,
     this.isMobile = false,
   }) : super(key: key);
 
@@ -37,8 +39,8 @@ class TextTitle extends StatelessWidget {
                   : screen
                       ? 29.28.w
                       : 200),
-          child: const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          child: Text(
+            des,
             style: kBodyTextStyleGrey,
             textAlign: TextAlign.center,
           ),

@@ -19,10 +19,14 @@ class DesktopContact extends StatelessWidget {
     return Container(
       color: kGreyBg,
       padding: EdgeInsets.symmetric(vertical: isMobile ? 50 : 0.0),
-      margin: const EdgeInsets.only(bottom: 80.0),
+      margin: EdgeInsets.only(bottom: 80.0, top: isMobile ? 0.0 : 80.0),
       child: Column(
         children: [
-          TextTitle(title: 'Contact Us', isMobile: isMobile),
+          TextTitle(
+              title: 'Contact Us',
+              isMobile: isMobile,
+              des:
+                  'Would like to learn more about us?\nAre you interested in partnering with us?\nGet in touch!'),
           const SizedBox(height: 20),
           Container(
             padding: EdgeInsets.symmetric(horizontal: isMobile ? 15.0 : 10.2.w),
@@ -73,8 +77,7 @@ class VisitUsPart extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10.0),
-        const Text(
-            'Office 101, 1st Floor\nFoxdale Court Office Park\n609 Zambezi Road, Roma\nLusaka, Zambia.',
+        const Text('Plot No. 21,\nManda Hill Road,\nLusaka Zambia.',
             style: kBodyTextStyleGrey),
       ],
     );

@@ -136,38 +136,18 @@ class _MobileBodyState extends State<MobileBody> {
           ),
           Consumer<SiteData>(
             builder: (context, data, __) => Expanded(
-              child: NotificationListener<ScrollNotification>(
-                onNotification: (ScrollNotification info) {
-                  if (_getPosition(homeKey) <= 0.0 &&
-                      _getPosition(servicesKey) > 0.0) {
-                    data.triggerSelection(0);
-                  } else if (_getPosition(servicesKey) <= 0.0 &&
-                      _getPosition(galleryKey) > 0.0) {
-                    data.triggerSelection(1);
-                  } else if (_getPosition(galleryKey) <= 0.0 &&
-                      _getPosition(teamKey) > 0.0) {
-                    data.triggerSelection(2);
-                  } else if (_getPosition(teamKey) <= 0.0 &&
-                      _getPosition(aboutKey) > 0.0) {
-                    data.triggerSelection(3);
-                  } else if (_getPosition(aboutKey) <= 0.0) {
-                    data.triggerSelection(4);
-                  }
-                  return true;
-                },
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  child: Column(
-                    children: [
-                      MobileHome(key: homeKey),
-                      MobileServices(key: servicesKey),
-                      MobileGallery(key: galleryKey),
-                      MobileTeam(key: teamKey),
-                      MobileAbout(key: aboutKey),
-                      const DesktopContact(isMobile: true),
-                      const DesktopFooter(),
-                    ],
-                  ),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    MobileHome(key: homeKey),
+                    MobileServices(key: servicesKey),
+                    MobileGallery(key: galleryKey),
+                    MobileTeam(key: teamKey),
+                    MobileAbout(key: aboutKey),
+                    const DesktopContact(isMobile: true),
+                    const DesktopFooter(),
+                  ],
                 ),
               ),
             ),
@@ -177,3 +157,22 @@ class _MobileBodyState extends State<MobileBody> {
     );
   }
 }
+
+      // onNotification: (ScrollNotification info) {
+      //             if (_getPosition(homeKey) <= 0.0 &&
+      //                 _getPosition(servicesKey) > 0.0) {
+      //               data.triggerSelection(0);
+      //             } else if (_getPosition(servicesKey) <= 0.0 &&
+      //                 _getPosition(galleryKey) > 0.0) {
+      //               data.triggerSelection(1);
+      //             } else if (_getPosition(galleryKey) <= 0.0 &&
+      //                 _getPosition(teamKey) > 0.0) {
+      //               data.triggerSelection(2);
+      //             } else if (_getPosition(teamKey) <= 0.0 &&
+      //                 _getPosition(aboutKey) > 0.0) {
+      //               data.triggerSelection(3);
+      //             } else if (_getPosition(aboutKey) <= 0.0) {
+      //               data.triggerSelection(4);
+      //             }
+      //             return true;
+      //           },

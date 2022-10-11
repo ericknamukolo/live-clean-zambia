@@ -16,7 +16,11 @@ class MobileGallery extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: [
-          const TextTitle(title: 'Gallery', isMobile: true),
+          const TextTitle(
+              title: 'Gallery',
+              isMobile: true,
+              des:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
           const SizedBox(height: 10.0),
           Column(
             children: SiteData.gallery
@@ -26,9 +30,10 @@ class MobileGallery extends StatelessWidget {
                     height: 250,
                     margin: const EdgeInsets.symmetric(
                         horizontal: 15.0, vertical: 15.0),
-                    child: Image.asset(
+                    child: Image.network(
                       gal,
                       fit: BoxFit.cover,
+                      filterQuality: FilterQuality.medium,
                     ),
                   ),
                 )

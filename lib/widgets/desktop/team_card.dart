@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:live_clean_zambia/models/partner.dart';
+import 'package:live_clean_zambia/widgets/desktop/desktop_contact.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
 class TeamCard extends StatelessWidget {
   final bool isMobile;
+  final Partner team;
   const TeamCard({
     Key? key,
+    required this.team,
     this.isMobile = false,
   }) : super(key: key);
 
@@ -16,7 +22,7 @@ class TeamCard extends StatelessWidget {
     return Container(
       height: screen ? 43.h : 300,
       width: screen ? 17.5.w : 240,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(25),
       margin: EdgeInsets.only(bottom: isMobile ? 30.0 : 0.0),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -38,33 +44,35 @@ class TeamCard extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: kPrimaryColor, width: 3.0),
               color: kPrimaryColor,
-              image: const DecorationImage(
-                image: AssetImage(
-                    'assets/images/junior-reis-GVsO8wqNuAw-unsplash.jpg'),
+              image: DecorationImage(
+                image: AssetImage(team.img),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 10.0),
           Text(
-            'Mrs Grace Chanda',
+            team.name,
             style: kCardTitleTextStyle.copyWith(
               fontSize: 16,
             ),
           ),
           const SizedBox(height: 4.0),
           Text(
-            'FOUNDER & CEO',
+            team.pos!,
+            textAlign: TextAlign.center,
             style: kCardTitleTextStyle.copyWith(
               fontSize: 14,
               color: const Color(0xffB4BAC3),
             ),
           ),
           const SizedBox(height: 4.0),
-          Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            style: kHintTextStyle,
-            textAlign: TextAlign.center,
+          IconBtn(
+            click: () async {
+              Uri url = Uri.parse(team.link);
+              await launchUrl(url);
+            },
+            icon: MdiIcons.linkedin,
           ),
         ],
       ),

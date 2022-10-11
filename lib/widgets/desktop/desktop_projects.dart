@@ -36,7 +36,10 @@ class DesktopProjects extends StatelessWidget {
               const SizedBox(height: 100.0),
               const TextAndImage(isReversed: true),
               const SizedBox(height: 60.0),
-              const TextTitle(title: 'Partners'),
+              const TextTitle(
+                  title: 'Partners',
+                  des:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
               const SizedBox(height: 40.0),
               GridView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 140.0),
@@ -80,7 +83,10 @@ class DesktopProjects extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 60.0),
-              const TextTitle(title: 'Our Toilets'),
+              const TextTitle(
+                  title: 'Our Toilets',
+                  des:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
               const SizedBox(height: 40.0),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.2.w),
