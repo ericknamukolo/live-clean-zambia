@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/models/partner.dart';
+import 'package:live_clean_zambia/widgets/desktop/desktop_contact.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
 
@@ -64,10 +67,12 @@ class TeamCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4.0),
-          Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            style: kHintTextStyle,
-            textAlign: TextAlign.center,
+          IconBtn(
+            click: () async {
+              Uri url = Uri.parse(team.link);
+              await launchUrl(url);
+            },
+            icon: MdiIcons.linkedin,
           ),
         ],
       ),

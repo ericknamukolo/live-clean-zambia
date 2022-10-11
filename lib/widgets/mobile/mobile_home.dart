@@ -20,8 +20,8 @@ class MobileHome extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: MediaQuery.of(context).size.height * .8,
-          child: Image.asset(
-            'assets/images/home.jpg',
+          child: Image.network(
+            'https://i.ibb.co/vsYr9wC/home.jpg',
             width: double.infinity,
             fit: BoxFit.cover,
             color: kPrimaryColor.withOpacity(.7),
