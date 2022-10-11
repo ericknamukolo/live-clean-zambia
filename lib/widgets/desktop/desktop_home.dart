@@ -19,8 +19,9 @@ class DesktopHome extends StatelessWidget {
       height: 75.h,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage('assets/images/home.jpg'),
+          image: const NetworkImage('https://i.ibb.co/vsYr9wC/home.jpg'),
           fit: BoxFit.cover,
+          filterQuality: FilterQuality.medium,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
             BlendMode.srcOver,

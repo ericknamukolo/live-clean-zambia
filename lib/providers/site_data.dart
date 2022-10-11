@@ -89,12 +89,12 @@ class SiteData with ChangeNotifier {
   ];
 
   static List<String> gallery = [
-    'assets/images/gallery1.jpg',
-    'assets/images/gallery2.jpg',
-    'assets/images/gallery3.jpg',
-    'assets/images/gallery4.jpg',
-    'assets/images/gallery5.jpg',
-    'assets/images/gallery6.jpg',
+    'https://i.ibb.co/MZ9MYbV/gallery1.jpg',
+    'https://i.ibb.co/ZxVGbPy/gallery2.jpg',
+    'https://i.ibb.co/s15r49W/gallery3.jpg',
+    'https://i.ibb.co/QHypcgS/gallery4.jpg',
+    'https://i.ibb.co/6DvfHtV/gallery5.jpg',
+    'https://i.ibb.co/YRKYGQn/gallery6.jpg',
   ];
 
   static List<Toilet> toilets = [
