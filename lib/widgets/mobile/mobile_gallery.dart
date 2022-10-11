@@ -30,7 +30,7 @@ class MobileGallery extends StatelessWidget {
                     height: 250,
                     margin: const EdgeInsets.symmetric(
                         horizontal: 15.0, vertical: 15.0),
-                    child: Image.network(
+                    child: Image.asset(
                       gal,
                       fit: BoxFit.cover,
                       filterQuality: FilterQuality.medium,

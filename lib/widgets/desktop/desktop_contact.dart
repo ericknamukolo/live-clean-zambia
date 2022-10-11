@@ -19,7 +19,8 @@ class DesktopContact extends StatelessWidget {
     return Container(
       color: kGreyBg,
       padding: EdgeInsets.symmetric(vertical: isMobile ? 50 : 0.0),
-      margin: EdgeInsets.only(bottom: 80.0, top: isMobile ? 0.0 : 80.0),
+      margin: EdgeInsets.only(
+          bottom: isMobile ? 0.0 : 80.0, top: isMobile ? 0.0 : 80.0),
       child: Column(
         children: [
           TextTitle(
