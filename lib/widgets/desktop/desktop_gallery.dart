@@ -39,7 +39,7 @@ class DesktopGallery extends StatelessWidget {
               decoration: BoxDecoration(
                 color: kPrimaryColor,
                 image: DecorationImage(
-                  image: NetworkImage(SiteData.gallery[index]),
+                  image: AssetImage(SiteData.gallery[index]),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.medium,
                 ),
