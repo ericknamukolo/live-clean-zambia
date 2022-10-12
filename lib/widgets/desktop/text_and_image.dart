@@ -9,10 +9,16 @@ import '../custom_button.dart';
 class TextAndImage extends StatelessWidget {
   final bool hasbtn;
   final bool isReversed;
+  final String title;
+  final String des;
+  final String img;
   const TextAndImage({
     Key? key,
     this.hasbtn = false,
     this.isReversed = false,
+    required this.title,
+    required this.des,
+    required this.img,
   }) : super(key: key);
 
   @override
@@ -27,18 +33,18 @@ class TextAndImage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: isReversed
                     ? [
-                        ImgPart(isReversed: isReversed),
-                        TextPart(hasbtn: hasbtn),
+                        ImgPart(isReversed: isReversed, img: img),
+                        TextPart(hasbtn: hasbtn, des: des, title: title),
                       ]
                     : [
-                        TextPart(hasbtn: hasbtn),
-                        ImgPart(isReversed: isReversed),
+                        TextPart(hasbtn: hasbtn, des: des, title: title),
+                        ImgPart(isReversed: isReversed, img: img),
                       ],
               )
             : Column(
                 children: [
-                  TextPart(hasbtn: hasbtn),
-                  ImgPart(isReversed: isReversed),
+                  TextPart(hasbtn: hasbtn, des: des, title: title),
+                  ImgPart(isReversed: isReversed, img: img),
                 ],
               ),
       ),
@@ -48,9 +54,11 @@ class TextAndImage extends StatelessWidget {
 
 class ImgPart extends StatelessWidget {
   final bool isReversed;
+  final String img;
   const ImgPart({
     Key? key,
     required this.isReversed,
+    required this.img,
   }) : super(key: key);
 
   @override
@@ -73,9 +81,8 @@ class ImgPart extends StatelessWidget {
               blurStyle: BlurStyle.solid,
             ),
           ],
-          image: const DecorationImage(
-            image: AssetImage(
-                'assets/images/pexels-andrea-piacquadio-3764545.jpg'),
+          image: DecorationImage(
+            image: AssetImage(img),
             fit: BoxFit.cover,
           ),
         ),
@@ -85,9 +92,13 @@ class ImgPart extends StatelessWidget {
 }
 
 class TextPart extends StatelessWidget {
+  final String title;
+  final String des;
   const TextPart({
     Key? key,
     required this.hasbtn,
+    required this.title,
+    required this.des,
   }) : super(key: key);
 
   final bool hasbtn;
@@ -99,12 +110,12 @@ class TextPart extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            title,
             style: kBodyTitleTextStyleGrey.copyWith(fontSize: 24.0),
           ),
           const SizedBox(height: 30.0),
-          const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis. Posuere morbi leo urna molestie at elementum eu facilisis sed. Nulla facilisi morbi tempus iaculis urna. Odio aenean sed adipiscing diam donec. Blandit aliquam etiam erat velit scelerisque in dictum. Facilisi cras fermentum odio eu feugiat. Blandit massa enim nec dui. Faucibus pulvinar elementum integer enim neque volutpat ac. Sed augue lacus viverra vitae congue. Eu consequat ac felis donec et odio pellentesque. Leo vel orci porta non pulvinar neque laoreet suspendisse.',
+          Text(
+            des,
             style: kBodyTextStyleGrey,
           ),
           const Spacer(),

@@ -5,7 +5,7 @@ import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
-import '../../widgets/desktop/desktop_projects.dart';
+import '../../widgets/desktop/desktop_partners.dart';
 import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_contact.dart';
 import '../../widgets/desktop/desktop_footer.dart';
@@ -35,14 +35,6 @@ class _DesktopBodyState extends State<DesktopBody> {
     Scrollable.ensureVisible(key.currentContext!,
         duration: const Duration(seconds: 1));
   }
-
-  // double _getPosition(GlobalKey key) {
-  //   RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
-  //   Offset position = box.localToGlobal(Offset.zero); //this is global position
-  //   double pos = position.dy;
-
-  //   return pos - 80.0;
-  // }
 
   @override
   Widget build(BuildContext context) {

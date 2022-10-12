@@ -76,7 +76,7 @@ class DesktopPartners extends StatelessWidget {
               const TextTitle(
                   title: 'Our Toilets',
                   des:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+                      'Visit any of our clean and safe toilets in your areas.'),
               const SizedBox(height: 40.0),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.2.w),
