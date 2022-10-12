@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/constants/text.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
-import 'package:live_clean_zambia/widgets/desktop/text_and_image.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,8 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../providers/site_data.dart';
 import 'toilet_location_card.dart';
 
-class DesktopProjects extends StatelessWidget {
-  const DesktopProjects({
+class DesktopPartners extends StatelessWidget {
+  const DesktopPartners({
     Key? key,
   }) : super(key: key);
 
@@ -21,9 +20,9 @@ class DesktopProjects extends StatelessWidget {
     return Column(
       children: [
         const ImageBanner(
-          title: 'Projects',
+          title: 'Partners',
           des:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+              'We have successfully built strategic partnerships that have expanded our ability to provide safe toilets for peri-urban dwellers.',
           img:
               'assets/images/christina-wocintechchat-com-rg1y72eKw6o-unsplash.jpg',
         ),
@@ -32,15 +31,6 @@ class DesktopProjects extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 100.0),
           child: Column(
             children: [
-              const TextAndImage(),
-              const SizedBox(height: 100.0),
-              const TextAndImage(isReversed: true),
-              const SizedBox(height: 60.0),
-              const TextTitle(
-                  title: 'Partners',
-                  des:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-              const SizedBox(height: 40.0),
               GridView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 140.0),
                 shrinkWrap: true,

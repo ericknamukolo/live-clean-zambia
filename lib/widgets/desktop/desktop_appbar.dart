@@ -8,7 +8,7 @@ class DesktopAppBar extends StatelessWidget {
   final Function() home;
   final Function() services;
   final Function() gallery;
-  final Function() projects;
+  final Function() partners;
   final Function() research;
   final Function() team;
   const DesktopAppBar({
@@ -16,7 +16,7 @@ class DesktopAppBar extends StatelessWidget {
     required this.team,
     required this.services,
     required this.gallery,
-    required this.projects,
+    required this.partners,
     required this.home,
     required this.research,
   }) : super(key: key);
@@ -54,7 +54,7 @@ class DesktopAppBar extends StatelessWidget {
             SizedBox(width: 2.19.w),
             AppBarItem(label: 'Gallery', click: gallery, indi: data.pages[3]),
             SizedBox(width: 2.19.w),
-            AppBarItem(label: 'Projects', click: projects, indi: data.pages[4]),
+            AppBarItem(label: 'Partners', click: partners, indi: data.pages[4]),
             SizedBox(width: 2.19.w),
             AppBarItem(label: 'Team', click: team, indi: data.pages[5]),
           ],
