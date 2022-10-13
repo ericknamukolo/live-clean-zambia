@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:live_clean_zambia/widgets/desktop/service_card.dart';
+import '../../constants/text.dart';
 import 'blue_banner.dart';
 import 'package:sizer/sizer.dart';
 
@@ -26,6 +27,8 @@ class DesktopServices extends StatelessWidget {
           color: kGreyBg,
           child: Column(
             children: [
+              ValuesWidget(title: 'Our Mission'),
+              ValuesWidget(title: 'Our Vision'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: SiteData.services
@@ -62,6 +65,35 @@ class DesktopServices extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class ValuesWidget extends StatelessWidget {
+  final String title;
+  const ValuesWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 50.0, left: 50.0, right: 50.0),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: kBodyTitleTextStyleGrey.copyWith(fontSize: 24.0),
+          ),
+          SizedBox(height: 15),
+          Text(
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            style: kBodyTextStyleGrey,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }

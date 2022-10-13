@@ -49,6 +49,11 @@ class ToiletLocationCard extends StatelessWidget {
           style: kBodyTextStyleGrey,
         ),
         const SizedBox(height: 10.0),
+        const Text(
+          'Holidays : 07:00hrs - 18:00hrs',
+          style: kBodyTextStyleGrey,
+        ),
+        const SizedBox(height: 10.0),
         Row(
           children: [
             const Text(

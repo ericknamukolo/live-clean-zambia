@@ -5,7 +5,7 @@ import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:provider/provider.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
-import '../../widgets/desktop/desktop_projects.dart';
+import '../../widgets/desktop/desktop_partners.dart';
 import '../../widgets/desktop/desktop_appbar.dart';
 import '../../widgets/desktop/desktop_contact.dart';
 import '../../widgets/desktop/desktop_footer.dart';
@@ -28,21 +28,13 @@ class _DesktopBodyState extends State<DesktopBody> {
   final servicesKey = GlobalKey();
   final rDkey = GlobalKey();
   final galleryKey = GlobalKey();
-  final projectsKey = GlobalKey();
+  final partnersKey = GlobalKey();
   final teamKey = GlobalKey();
 
   void _scrollToSection(GlobalKey key) {
     Scrollable.ensureVisible(key.currentContext!,
         duration: const Duration(seconds: 1));
   }
-
-  // double _getPosition(GlobalKey key) {
-  //   RenderBox box = key.currentContext!.findRenderObject() as RenderBox;
-  //   Offset position = box.localToGlobal(Offset.zero); //this is global position
-  //   double pos = position.dy;
-
-  //   return pos - 80.0;
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +46,7 @@ class _DesktopBodyState extends State<DesktopBody> {
             team: () => _scrollToSection(teamKey),
             home: () => _scrollToSection(homeKey),
             services: () => _scrollToSection(servicesKey),
-            projects: () => _scrollToSection(projectsKey),
+            partners: () => _scrollToSection(partnersKey),
             gallery: () => _scrollToSection(galleryKey),
             research: () => _scrollToSection(rDkey),
           ),
@@ -71,7 +63,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                       DesktopServices(key: servicesKey),
                       RAndDDesktop(key: rDkey),
                       DesktopGallery(key: galleryKey),
-                      DesktopProjects(key: projectsKey),
+                      DesktopPartners(key: partnersKey),
                       DesktopTeam(key: teamKey),
                       const DesktopContact(),
                       const DesktopFooter(),
@@ -86,26 +78,3 @@ class _DesktopBodyState extends State<DesktopBody> {
     );
   }
 }
-
-    // onNotification: (ScrollNotification info) {
-    //               if (_getPosition(homeKey) <= 0.0 &&
-    //                   _getPosition(servicesKey) > 0.0) {
-    //                 data.triggerSelection(0);
-    //               } else if (_getPosition(servicesKey) <= 0.0 &&
-    //                   _getPosition(rDkey) > 0.0) {
-    //                 data.triggerSelection(1);
-    //               } else if (_getPosition(rDkey) <= 0.0 &&
-    //                   _getPosition(galleryKey) > 0.0) {
-    //                 data.triggerSelection(2);
-    //               } else if (_getPosition(galleryKey) <= 0.0 &&
-    //                   _getPosition(projectsKey) > 0.0) {
-    //                 data.triggerSelection(3);
-    //               } else if (_getPosition(projectsKey) <= 0.0 &&
-    //                   _getPosition(teamKey) > 0.0) {
-    //                 data.triggerSelection(4);
-    //               } else if (_getPosition(teamKey) <= 0.0) {
-    //                 data.triggerSelection(5);
-    //               }
-
-    //               return true;
-    //             },
