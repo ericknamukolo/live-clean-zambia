@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/widgets/desktop/blue_banner.dart';
+import 'package:live_clean_zambia/widgets/desktop/service_card.dart';
 import 'package:live_clean_zambia/widgets/desktop/team_card.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:sizer/sizer.dart';
@@ -23,9 +24,19 @@ class DesktopTeam extends StatelessWidget {
             des:
                 'We are a young and vibrant team, sensitive to gender and disability equity.',
             title: 'Meet Our Team'),
+        SizedBox(height: 50.0),
+        Text(
+          'Management Team',
+          style: kTitleTextStyle.copyWith(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: kPrimaryColor,
+          ),
+          textAlign: TextAlign.center,
+        ),
         Container(
           padding: EdgeInsets.only(
-              top: 11.0.h, bottom: 40.0, left: 10.2.w, right: 10.2.w),
+              top: 40.0, bottom: 40.0, left: 10.2.w, right: 10.2.w),
           color: kGreyBg,
           child: Column(
             children: [
@@ -64,20 +75,52 @@ class DesktopTeam extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TeamPart(title: 'Cashiers', icon: MdiIcons.cashMultiple, num: '6'),
-            const SizedBox(width: 100.0),
-            TeamPart(
-                title: 'Cleaners',
-                icon: Icons.cleaning_services_rounded,
-                num: '8'),
-            const SizedBox(width: 100.0),
-            TeamPart(title: 'Guards', icon: MdiIcons.policeBadge, num: '4'),
-          ],
+        Container(
+          padding: EdgeInsets.only(
+              top: 40.0, bottom: 0.0, left: 10.2.w, right: 10.2.w),
+          color: kGreyBg,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: screen
+                    ? MainAxisAlignment.spaceBetween
+                    : MainAxisAlignment.spaceAround,
+                children: SiteData.supportTeam
+                    .getRange(0, screen ? 3 : 2)
+                    .map(
+                      (team) => ServiceCard(service: team, isTeam: true),
+                    )
+                    .toList(),
+              ),
+              SizedBox(height: screen ? 0 : 11.52.h),
+              Visibility(
+                visible: !screen,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ServiceCard(
+                      service: SiteData.supportTeam[2],
+                      isTeam: true,
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     TeamPart(title: 'Cashiers', icon: MdiIcons.cashMultiple, num: '6'),
+        //     const SizedBox(width: 100.0),
+        //     TeamPart(
+        //         title: 'Cleaners',
+        //         icon: Icons.cleaning_services_rounded,
+        //         num: '8'),
+        //     const SizedBox(width: 100.0),
+        //     TeamPart(title: 'Guards', icon: MdiIcons.policeBadge, num: '4'),
+        //   ],
+        // ),
       ],
     );
   }

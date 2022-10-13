@@ -8,10 +8,12 @@ import 'package:sizer/sizer.dart';
 class ServiceCard extends StatelessWidget {
   final Service service;
   final bool isMobile;
+  final bool isTeam;
   const ServiceCard({
     Key? key,
     required this.service,
     this.isMobile = false,
+    this.isTeam = false,
   }) : super(key: key);
 
   @override
@@ -31,8 +33,20 @@ class ServiceCard extends StatelessWidget {
           ),
         ],
       ),
-      height: screen ? 46.h : 320,
-      width: screen ? 19.77.w : 270,
+      height: isTeam
+          ? screen
+              ? 43.h
+              : 300
+          : screen
+              ? 46.h
+              : 320,
+      width: isTeam
+          ? screen
+              ? 17.5.w
+              : 240
+          : screen
+              ? 19.77.w
+              : 270,
       child: Column(
         children: [
           Container(
@@ -43,11 +57,17 @@ class ServiceCard extends StatelessWidget {
               color: const Color(0x26319DA0),
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: SvgPicture.asset(
-              service.iconUrl,
-              color: kPrimaryColor,
-              height: 40.0,
-            ),
+            child: isTeam
+                ? Icon(
+                    service.icon,
+                    size: 40,
+                    color: kPrimaryColor,
+                  )
+                : SvgPicture.asset(
+                    service.iconUrl,
+                    color: kPrimaryColor,
+                    height: 40.0,
+                  ),
           ),
           const SizedBox(height: 15),
           Text(
@@ -56,10 +76,17 @@ class ServiceCard extends StatelessWidget {
             style: kCardTitleTextStyle,
           ),
           const SizedBox(height: 10),
-          Text(
-            service.des,
-            textAlign: TextAlign.center,
-            style: kBodyTextStyleGrey,
+          Expanded(
+            child: Container(
+              alignment: isTeam ? Alignment.center : null,
+              child: Text(
+                service.des,
+                textAlign: TextAlign.center,
+                style: kBodyTextStyleGrey.copyWith(
+                  fontSize: isTeam ? 100.0 : 14,
+                ),
+              ),
+            ),
           ),
         ],
       ),

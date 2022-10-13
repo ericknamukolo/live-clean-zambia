@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/models/partner.dart';
 import 'package:live_clean_zambia/models/service.dart';
 import 'package:live_clean_zambia/models/toilet.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SiteData with ChangeNotifier {
   static String homeHeader =
@@ -86,6 +88,17 @@ class SiteData with ChangeNotifier {
       pos: 'Financial Management Consultant',
       img: 'assets/images/moyo.jpg',
     ),
+  ];
+
+  static List<Service> supportTeam = [
+    Service(
+        des: '6', iconUrl: '', title: 'Cashiers', icon: MdiIcons.cashMultiple),
+    Service(
+        des: '8',
+        iconUrl: '',
+        title: 'Cleaners',
+        icon: Icons.cleaning_services_rounded),
+    Service(des: '4', iconUrl: '', title: 'Guards', icon: MdiIcons.policeBadge),
   ];
 
   static List<String> gallery = [
