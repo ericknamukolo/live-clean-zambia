@@ -18,7 +18,7 @@ class RAndDDesktop extends StatelessWidget {
         children: const [
           ImageBanner(
             des:
-                'We service over 21,600 toilet visits each week. The wealth of data and waste resource available to us is too good to go untapped.',
+                'We service over 8,200 toilet visits each week. The wealth of data and waste resource available to us is too good to go untapped.',
             img: 'assets/images/wash.jpg',
             title: 'Research & Development',
           ),

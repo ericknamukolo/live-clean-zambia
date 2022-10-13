@@ -111,7 +111,6 @@ class SiteData with ChangeNotifier {
   ];
 
   static List<String> home = [
-    'assets/images/home1.PNG',
     'assets/images/home2.jpg',
     'assets/images/home3.jpg',
     'assets/images/home4.jpg',
@@ -120,9 +119,26 @@ class SiteData with ChangeNotifier {
   ];
 
   static List<Toilet> toilets = [
-    Toilet(name: 'Kanyama Market, Lusaka', img: 'assets/images/kanyama.jpg'),
-    Toilet(name: 'Tokyo Way Market, Lusaka', img: 'assets/images/kamwala.jpg'),
-    Toilet(name: 'Buseko Market, Lusaka', img: 'assets/images/buseko.jpg'),
+    Toilet(
+        name: 'Kanyama Market, Lusaka',
+        id: 'kanyama',
+        link: 'https://goo.gl/maps/rupxW4ES8XhwcvBM9'),
+    Toilet(
+        name: 'Buseko Market, Lusaka',
+        id: 'buseko',
+        link: 'https://goo.gl/maps/DAvYVVpkHxQNYGpH6'),
+    Toilet(
+        name: 'Tokyo Way Market, Lusaka',
+        id: 'tokyo',
+        link: 'https://goo.gl/maps/QTnfLYf2dmDm3Lsb7'),
+    Toilet(
+        name: 'Kyawama Market, Solwezi',
+        id: 'kyawama',
+        link: 'https://goo.gl/maps/5G9vzUW44cRHNtb3A'),
+    Toilet(
+        name: 'Town Market, Solwezi',
+        id: 'town',
+        link: 'https://goo.gl/maps/HkU49ke6h1YPPi8i8'),
   ];
 
   static getWidth(double width) {

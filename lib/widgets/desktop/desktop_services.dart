@@ -22,13 +22,12 @@ class DesktopServices extends StatelessWidget {
           title: 'What We Do',
           des: SiteData.whatWeDo,
         ),
+        Center(child: Image.asset('assets/images/values.png')),
         Container(
           padding: EdgeInsets.symmetric(vertical: 11.52.h, horizontal: 10.2.w),
           color: kGreyBg,
           child: Column(
             children: [
-              ValuesWidget(title: 'Our Mission'),
-              ValuesWidget(title: 'Our Vision'),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: SiteData.services
