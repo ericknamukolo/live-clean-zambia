@@ -36,8 +36,6 @@ class RAndDDesktop extends StatelessWidget {
             isReversed: true,
             img: 'assets/images/tl.jpg',
             title: 'Waterless Toilets',
-            des:
-                'We have serviced over 1 million toilet uses from inception. We use toilets with cisterns that flush a minimum of 7 liters of water – do the math. That is over 7 million liters of water that have quite literally been flushed down the toilet. Part of our core work as we pursue expansion is to install waterless sanitation technology. Waterless toilets require little infrastructure (reduce capital demands on financing) and conserve a scarce resource, particularly in Zambia where safe water access is not a privilege for all.\n\nWe are currently engaged with change: WATER Labs (link) to pilot waterless toilets in Ndola under the ABInBev Challenges program. Watch this space!',
           ),
           SizedBox(height: 80.0),
           TextAndImage(

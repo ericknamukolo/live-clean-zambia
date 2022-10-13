@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -10,14 +12,14 @@ class TextAndImage extends StatelessWidget {
   final bool hasbtn;
   final bool isReversed;
   final String title;
-  final String des;
+  final String? des;
   final String img;
   const TextAndImage({
     Key? key,
     this.hasbtn = false,
     this.isReversed = false,
     required this.title,
-    required this.des,
+    this.des,
     required this.img,
   }) : super(key: key);
 
@@ -93,7 +95,7 @@ class ImgPart extends StatelessWidget {
 
 class TextPart extends StatelessWidget {
   final String title;
-  final String des;
+  final String? des;
   const TextPart({
     Key? key,
     required this.hasbtn,
@@ -114,10 +116,38 @@ class TextPart extends StatelessWidget {
             style: kBodyTitleTextStyleGrey.copyWith(fontSize: 24.0),
           ),
           const SizedBox(height: 30.0),
-          Text(
-            des,
-            style: kBodyTextStyleGrey,
-          ),
+          des != null
+              ? Text(
+                  des!,
+                  style: kBodyTextStyleGrey,
+                )
+              : Text.rich(
+                  style: kBodyTextStyleGrey,
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                          text:
+                              'We have serviced over 1 million toilet uses from inception. We use toilets with cisterns that flush a minimum of 7 liters of water – do the math. That is over 7 million liters of water that have quite literally been flushed down the toilet. Part of our core work as we pursue expansion is to install waterless sanitation technology. Waterless toilets require little infrastructure (reduce capital demands on financing) and conserve a scarce resource, particularly in Zambia where safe water access is not a privilege for all.\n\nWe are currently engaged with '),
+                      TextSpan(
+                        mouseCursor: SystemMouseCursors.click,
+                        recognizer: new TapGestureRecognizer()
+                          ..onTap = () async {
+                            Uri url =
+                                Uri.parse('https://www.change-water.com/');
+                            await launchUrl(url);
+                          },
+                        text: 'change: WATER Labs',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: kSecondaryColor,
+                        ),
+                      ),
+                      TextSpan(
+                          text:
+                              ' to pilot waterless toilets in Ndola under the ABInBev Challenges program. Watch this space!'),
+                    ],
+                  ),
+                ),
           const Spacer(),
           const SizedBox(height: 20.0),
           Visibility(
