@@ -5,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../constants/text.dart';
 import '../../providers/site_data.dart';
-import '../custom_button.dart';
 import '../desktop/desktop_contact.dart';
 
 class MobileHome extends StatelessWidget {
@@ -20,8 +19,8 @@ class MobileHome extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: MediaQuery.of(context).size.height * .8,
-          child: Image.network(
-            'https://i.ibb.co/vsYr9wC/home.jpg',
+          child: Image.asset(
+            'assets/images/home2.jpg',
             width: double.infinity,
             fit: BoxFit.cover,
             color: kPrimaryColor.withOpacity(.7),
