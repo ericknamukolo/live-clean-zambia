@@ -96,7 +96,17 @@ class DesktopPartners extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: SiteData.toilets
-                                .getRange(2, 3)
+                                .getRange(2, 4)
+                                .map(
+                                  (tl) => ToiletLocationCard(tl: tl),
+                                )
+                                .toList(),
+                          ),
+                          const SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: SiteData.toilets
+                                .getRange(4, 5)
                                 .map(
                                   (tl) => ToiletLocationCard(tl: tl),
                                 )

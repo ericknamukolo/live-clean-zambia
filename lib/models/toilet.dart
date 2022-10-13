@@ -1,9 +1,11 @@
 class Toilet {
+  String id;
   String name;
-  String img;
+  String link;
 
   Toilet({
+    required this.id,
     required this.name,
-    required this.img,
+    required this.link,
   });
 }
