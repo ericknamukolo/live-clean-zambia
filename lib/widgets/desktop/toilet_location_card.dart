@@ -2,6 +2,8 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/models/toilet.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui' as ui;
 import '../../constants/colors.dart';
 import '../../constants/text.dart';
@@ -53,10 +55,29 @@ class _ToiletLocationCardState extends State<ToiletLocationCard> {
           child: HtmlElementView(viewType: widget.tl.id),
         ),
         const SizedBox(height: 15.0),
-        Text(
-          widget.tl.name,
-          style: kBodyTitleTextStyleGrey.copyWith(
-            color: kPrimaryColor,
+        Container(
+          width: widget.isMobile ? double.infinity : 500,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.tl.name,
+                style: kBodyTitleTextStyleGrey.copyWith(
+                  color: kPrimaryColor,
+                ),
+              ),
+              IconButton(
+                onPressed: () async {
+                  Uri url = Uri.parse(widget.tl.link);
+                  await launchUrl(url);
+                },
+                icon: Icon(
+                  MdiIcons.googleMaps,
+                  color: kPrimaryColor,
+                  size: 35.0,
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 10.0),
