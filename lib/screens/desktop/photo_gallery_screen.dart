@@ -45,7 +45,7 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
     return Scaffold(
       backgroundColor: kGreyBg,
       body: Container(
-        padding: const EdgeInsets.only(top: 50.0),
+        padding: const EdgeInsets.only(top: 15.0),
         child: Column(
           children: [
             Container(
