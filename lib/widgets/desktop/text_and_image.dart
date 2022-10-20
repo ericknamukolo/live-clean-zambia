@@ -152,7 +152,7 @@ class TextPart extends StatelessWidget {
           const SizedBox(height: 20.0),
           Visibility(
             visible: hasbtn,
-            child: const CustomButton(text: 'Learn More'),
+            child: CustomButton(text: 'Learn More', click: () {}),
           ),
         ],
       ),
