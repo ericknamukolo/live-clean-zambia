@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/constants/text.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../models/nav_btn.dart';
 
@@ -13,6 +14,7 @@ class PhotoGalleryScreen extends StatefulWidget {
 
 class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
   final PageController _pageController = PageController();
+  final _scrollController = ScrollController();
 
   List<NaviButton> navBtns = [
     NaviButton(title: 'On Site', isSelected: true, pageNumber: 0),
@@ -39,10 +41,11 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool screen = MediaQuery.of(context).size.width > 1146;
     return Scaffold(
       backgroundColor: kGreyBg,
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 50.0),
+        padding: const EdgeInsets.only(top: 50.0),
         child: Column(
           children: [
             Container(
@@ -109,7 +112,7 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 30.0),
+              margin: const EdgeInsets.symmetric(vertical: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: navBtns
@@ -123,6 +126,36 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
                           },
                         ))
                     .toList(),
+              ),
+            ),
+            Expanded(
+              child: WebSmoothScroll(
+                controller: _scrollController,
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+                  child: GridView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                    shrinkWrap: true,
+                    itemCount: 20,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: screen ? 3 : 2,
+                      childAspectRatio: 3 / 2,
+                      crossAxisSpacing: 20.0,
+                      mainAxisSpacing: 20.0,
+                    ),
+                    itemBuilder: (context, index) => Container(
+                      decoration: BoxDecoration(
+                        color: kPrimaryColor,
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/img.jpg'),
+                          fit: BoxFit.cover,
+                          filterQuality: FilterQuality.medium,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
