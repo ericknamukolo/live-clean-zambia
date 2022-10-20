@@ -20,7 +20,7 @@ class _PhotoGalleryScreenState extends State<PhotoGalleryScreen> {
     NaviButton(title: 'On Site', isSelected: true, pageNumber: 0),
     NaviButton(title: 'Projects', pageNumber: 1),
     NaviButton(title: 'Events', pageNumber: 2),
-    NaviButton(title: 'Bussiness', pageNumber: 3),
+    NaviButton(title: 'Business', pageNumber: 3),
   ];
 
   void selectNav(NaviButton nav) {
