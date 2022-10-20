@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:live_clean_zambia/constants/colors.dart';
 import 'package:live_clean_zambia/providers/site_data.dart';
+import 'package:live_clean_zambia/screens/desktop/photo_gallery_screen.dart';
+import 'package:live_clean_zambia/widgets/custom_button.dart';
 import 'package:live_clean_zambia/widgets/desktop/image_banner.dart';
 import 'package:live_clean_zambia/widgets/desktop/text_title.dart';
 
@@ -45,6 +47,14 @@ class DesktopGallery extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          const SizedBox(height: 40.0),
+          CustomButton(
+            text: 'See All',
+            click: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PhotoGalleryScreen()));
+            },
           ),
         ],
       ),
